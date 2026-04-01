@@ -1,125 +1,133 @@
 "use client";
 
 import React from 'react';
-import Link from 'next/link';
 
 export default function Profile() {
+  const user = {
+    name: "AIDreamWorld",
+    tier: "프라임 멤버",
+    stats: [
+      { label: "함께한 날", value: "124일" },
+      { label: "챌린지", value: "32개" },
+      { label: "콜렉션", value: "4개" }
+    ],
+    collections: [
+      { id: 1, title: "#3050라인댄스", img: "youthful_passionate_dancer_model_1775027942388.png" },
+      { id: 2, title: "#엘리트슈즈_착용샷", img: "senior_dance_model_exclusive_1775027245869.png" },
+      { id: 3, title: "#부천_정기공연", img: "korean_community_dancing_mix_1775028456302.png" }
+    ]
+  };
+
   return (
     <div className="sanctuary-hub">
-      <div className="santuary-glow-sub"></div>
-      
-      <section className="profile-hero container">
-        <div className="editorial-meta reveal-text">
-          <span className="label-caps">MEMBER SANCTUARY / ELITE STATUS</span>
+      <header className="hub-header container">
+        <div className="profile-top">
+          <div className="avatar-monolith tonal-lift-high pulse-on-click">
+            <div className="avatar-inner"></div>
+          </div>
+          <div className="user-details">
+            <span className="label-caps accent-color gold-gradient-text">{user.tier}</span>
+            <h1 className="display-text user-name">{user.name}</h1>
+            <button className="btn-stitch-secondary label-caps profile-edit">프로필 수정</button>
+          </div>
+        </div>
+
+        <div className="stats-row">
+          {user.stats.map(s => (
+            <div key={s.label} className="stat-card tonal-lift-low">
+              <span className="label-caps stat-label">{s.label}</span>
+              <span className="display-text stat-value">{s.value}</span>
+            </div>
+          ))}
+        </div>
+      </header>
+
+      <main className="vault-section container">
+        <div className="section-head flex-between">
+           <div className="label-caps accent-color">나의 보관함 /03</div>
+           <button className="label-caps text-link">새 폴더 +</button>
         </div>
         
-        <div className="profile-header-group">
-          <div className="avatar-monolith tonal-lift-high pulse-on-click">
-             <div className="avatar-initials">AD</div>
-          </div>
-          <div className="profile-info">
-             <h1 className="display-text profile-name">AI Dreamer</h1>
-             <p className="label-caps gold-gradient-text">PLATINUM DANCER</p>
-          </div>
+        <div className="vault-grid">
+           {user.collections.map(c => (
+             <div key={c.id} className="vault-item tonal-lift-low">
+               <div className="vault-thumb">
+                 <img src={c.img} alt={c.title} />
+                 <div className="thumb-overlay"></div>
+               </div>
+               <div className="vault-info">
+                 <h3 className="label-caps vault-title">{c.title}</h3>
+                 <span className="label-caps vault-meta">미디어 12개</span>
+               </div>
+             </div>
+           ))}
         </div>
-      </section>
+      </main>
 
-      <section className="profile-stats container">
-         <div className="stat-card tonal-lift-low">
-             <span className="label-caps stat-label">PRACTICE HOURS</span>
-             <span className="display-text stat-value">124</span>
-         </div>
-         <div className="stat-card tonal-lift-low">
-             <span className="label-caps stat-label">CHALLENGES</span>
-             <span className="display-text stat-value">12</span>
-         </div>
-         <div className="stat-card tonal-lift-low">
-             <span className="label-caps stat-label">POINTS</span>
-             <span className="display-text stat-value">2.4k</span>
-         </div>
-      </section>
-
-      <section className="my-vault container">
-         <h2 className="display-text section-title-sub">The Vault</h2>
-         <div className="vault-grid">
-            <div className="vault-item tonal-lift-high pulse-on-click">
-               <div className="vault-icon">📁</div>
-               <span className="label-caps">MY VIDEOS</span>
+      <footer className="hub-footer container">
+         <div className="footer-line"></div>
+         <div className="settings-list">
+            <div className="setting-item flex-between pulse-on-click">
+               <span className="label-caps">주문 및 배송 조회</span>
+               <span className="arrow">→</span>
             </div>
-            <div className="vault-item tonal-lift-high pulse-on-click">
-               <div className="vault-icon">💳</div>
-               <span className="label-caps">PAYMENTS</span>
+            <div className="setting-item flex-between pulse-on-click">
+               <span className="label-caps">관심 상품 목록</span>
+               <span className="arrow">→</span>
             </div>
-            <div className="vault-item tonal-lift-high pulse-on-click">
-               <div className="vault-icon">⚙️</div>
-               <span className="label-caps">SETTINGS</span>
+            <div className="setting-item flex-between pulse-on-click">
+               <span className="label-caps">고객 센터</span>
+               <span className="arrow">→</span>
             </div>
          </div>
-      </section>
+      </footer>
 
       <style jsx>{`
-        .sanctuary-hub {
-          padding-top: 10rem;
-          padding-bottom: 20rem;
-          min-height: 100vh;
-          position: relative;
-        }
+        .sanctuary-hub { padding-top: 10rem; padding-bottom: 20vh; background: var(--background); }
+        .container { padding: 0 var(--gutter); }
 
-        .container {
-          padding-left: var(--gutter);
-          padding-right: var(--gutter);
-        }
-
-        .santuary-glow-sub {
-          position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-          width: 100vw; height: 50vh;
-          background: radial-gradient(circle at top, rgba(212, 175, 55, 0.08), transparent 70%);
-          pointer-events: none;
-        }
-
-        .profile-header-group {
-          display: flex; align-items: center; gap: 3rem; margin-top: 4rem; margin-bottom: 6rem;
-        }
-
+        .profile-top { display: flex; align-items: center; gap: 3rem; margin-bottom: 5rem; }
         .avatar-monolith {
-          width: 120px; height: 120px; border-radius: 50%;
-          display: flex; align-items: center; justify-content: center;
-          font-size: 2rem; font-family: var(--font-display);
-          border: 1px solid rgba(255,255,255,0.05);
-          color: var(--primary);
+          width: 140px; height: 180px; background: var(--surface-3); border-radius: 4px;
+          position: relative; overflow: hidden;
         }
+        .avatar-inner { width: 100%; height: 100%; background: linear-gradient(135deg, #1A1C20 0%, #121316 100%); }
+        .user-name { font-size: 3.5rem; margin-top: 0.5rem; margin-bottom: 1.5rem; letter-spacing: -0.01em; font-weight: 300; }
+        .profile-edit { padding: 0.6rem 1.2rem; font-size: 0.6rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 2px; }
 
-        .profile-name { font-size: 3.5rem; line-height: 1; margin-bottom: 0.5rem; }
+        .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 8rem; }
+        .stat-card { padding: 2.5rem; background: var(--surface-1); border-radius: 4px; border: 1px solid rgba(255,255,255,0.03); }
+        .stat-label { font-size: 0.6rem; opacity: 0.4; margin-bottom: 0.75rem; display: block; }
+        .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
 
-        .profile-stats {
-          display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-          margin-bottom: 8rem;
+        .vault-section { margin-bottom: 8rem; }
+        .section-head { margin-bottom: 3rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+        .vault-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+        .vault-item { cursor: pointer; transition: 0.4s; }
+        .vault-thumb { aspect-ratio: 4/5; overflow: hidden; border-radius: 4px; position: relative; margin-bottom: 1.5rem; }
+        .vault-thumb img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7); transition: 0.8s; }
+        .thumb-overlay { position: absolute; inset: 0; background: linear-gradient(to top, #000 0%, transparent 60%); }
+        .vault-info { text-align: left; }
+        .vault-title { font-size: 0.75rem; letter-spacing: 0.05em; margin-bottom: 0.5rem; opacity: 0.9; }
+        .vault-meta { font-size: 0.55rem; opacity: 0.4; }
+
+        .vault-item:hover img { transform: scale(1.05); filter: brightness(0.9); }
+
+        .footer-line { width: 100%; height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 4rem; }
+        .settings-list { display: flex; flex-direction: column; gap: 1rem; }
+        .setting-item { padding: 1.5rem 0; cursor: pointer; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .setting-item:hover { color: var(--primary); }
+
+        @media (max-width: 1024px) {
+           .vault-grid { grid-template-columns: repeat(2, 1fr); }
         }
-
-        .stat-card {
-          padding: 2.5rem; border-radius: 2px; text-align: center;
-          display: flex; flex-direction: column; gap: 1rem;
-        }
-
-        .stat-value { font-size: 2.5rem; }
-
-        .section-title-sub { font-size: 2.5rem; margin-bottom: 3rem; }
-
-        .vault-grid {
-          display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;
-        }
-
-        .vault-item {
-          padding: 3rem; display: flex; flex-direction: column; align-items: center; gap: 2rem;
-          border-radius: 2px; cursor: pointer;
-        }
-
-        .vault-icon { font-size: 2rem; }
-
         @media (max-width: 768px) {
-          .profile-header-group { flex-direction: column; text-align: center; gap: 2rem; }
-          .profile-stats { grid-template-columns: 1fr; }
-          .profile-name { font-size: 2.5rem; }
+           .profile-top { flex-direction: column; text-align: center; gap: 2rem; }
+           .avatar-monolith { width: 120px; height: 150px; }
+           .user-name { font-size: 2.5rem; }
+           .stats-row { grid-template-columns: 1fr; gap: 1rem; }
+           .vault-grid { grid-template-columns: 1fr; gap: 3rem; }
         }
       `}</style>
     </div>

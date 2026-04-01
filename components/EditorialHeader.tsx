@@ -15,7 +15,7 @@ export default function EditorialHeader() {
   return (
     <header className={`editorial-header ${isScrolled ? 'scrolled glass' : ''}`}>
       <div className="header-content">
-        <button className="menu-trigger pulse-on-click" aria-label="Menu">
+        <button className="menu-trigger pulse-on-click" aria-label="메뉴">
           <span className="bar"></span>
           <span className="bar-short"></span>
         </button>
@@ -23,14 +23,14 @@ export default function EditorialHeader() {
           K-DANCE PRIME
         </Link>
         <div className="header-right">
-           <span className="prime-badge">V2.2</span>
+           <span className="prime-badge">에디션 V2.2</span>
         </div>
       </div>
 
       <style jsx>{`
         .editorial-header {
           position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-          padding: 2rem 0; transition: var(--transition-slow);
+          padding: 2rem 0; transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .editorial-header.scrolled { 
           padding: 1rem 0; 
@@ -45,7 +45,7 @@ export default function EditorialHeader() {
         .menu-trigger .bar-short { width: 16px; height: 1.5px; background: #fff; opacity: 0.6; }
         .prime-badge {
           font-family: var(--font-body); font-size: 0.55rem; font-weight: 900;
-          background: var(--primary); color: var(--on-primary);
+          background: #D4AF37; color: #121316;
           padding: 0.2rem 0.45rem; letter-spacing: 0.05em; border-radius: 2px;
         }
 
@@ -61,7 +61,7 @@ export default function EditorialHeader() {
           100% { transform: scale(1); filter: brightness(1); }
         }
         .pulse-on-click:active {
-          animation: stitchPulse 0.4s var(--ease-stitch);
+          animation: stitchPulse 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @media (max-width: 768px) {

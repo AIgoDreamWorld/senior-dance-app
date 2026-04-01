@@ -6,10 +6,10 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <>
-      {/* 🌑 VOLUMETRIC BACKGROUND LAYER */}
+      {/* 🌑 전역 배경 효과 */}
       <div className="sanctuary-glow"></div>
 
-      {/* 🎭 THE ASYMMETRIC STORYTELLING HERO */}
+      {/* 🎭 비대칭 스토리텔링 히어로 */}
       <section className="monolith-hero">
         <div className="hero-background">
           <img 
@@ -22,38 +22,38 @@ export default function Home() {
         
         <div className="hero-content container">
           <div className="editorial-meta reveal-text">
-            <span className="label-caps">Curated by K-DANCE PRIME / 2026 EDITION</span>
+            <span className="label-caps">K-DANCE PRIME 큐레이션 / 2026 에디션</span>
           </div>
           <h1 className="display-text hero-title">
-            <span className="reveal-text">THE PRECISION</span><br/>
-            <span className="reveal-text gold-gradient-text italic">OF LIFE</span>
+            <span className="reveal-text">삶의 정교한</span><br/>
+            <span className="reveal-text gold-gradient-text italic">리듬</span>
           </h1>
           
           <div className="hero-bottom flex-between">
             <div className="discovery-actions">
-              <Link href="/community" className="btn-stitch-primary">EXPLORE FEED</Link>
-              <Link href="/shop" className="btn-stitch-secondary">THE LOOKBOOK</Link>
+              <Link href="/community" className="btn-stitch-primary">피드 둘러보기</Link>
+              <Link href="/shop" className="btn-stitch-secondary">룩북 보기</Link>
             </div>
-            <div className="scroll-indicator label-caps">SCROLL TO DISCOVER ↓</div>
+            <div className="scroll-indicator label-caps">스크롤하여 발견하기 ↓</div>
           </div>
         </div>
       </section>
 
-      {/* 🎬 DANCE VERTICALS - THE ZEN CAROUSEL */}
+      {/* 🎬 댄스 버티컬 - 젠 쇼츠 */}
       <section className="editorial-section">
         <div className="section-head container">
-          <div className="label-caps accent-color">01 / LIVE FEED</div>
+          <div className="label-caps accent-color">01 / 라이브 피드</div>
           <div className="flex-between align-end">
-            <h2 className="display-text section-title">Zen Shorts</h2>
-            <Link href="/community" className="label-caps text-link">ALL MOMENTS →</Link>
+            <h2 className="display-text section-title">Zen 쇼츠</h2>
+            <Link href="/community" className="label-caps text-link">전체 보기 →</Link>
           </div>
         </div>
         
         <div className="shorts-slider scroll-hide">
           {[
-            { id: 1, title: 'The Soul of Line', tag: 'PREMIUM', img: 'youthful_passionate_dancer_model_1775027942388.png' },
-            { id: 2, title: 'Obsidian Rhythm', tag: 'LIMITED', img: 'senior_dance_model_exclusive_1775027245869.png' },
-            { id: 3, title: 'Golden Pulse', tag: 'ELITE', img: 'korean_community_dancing_mix_1775028456302.png' }
+            { id: 1, title: '라인의 영혼', tag: '프리미엄', img: 'youthful_passionate_dancer_model_1775027942388.png' },
+            { id: 2, title: '옵시디언 리듬', tag: '리미티드', img: 'senior_dance_model_exclusive_1775027245869.png' },
+            { id: 3, title: '골든 펄스', tag: '엘리트', img: 'korean_community_dancing_mix_1775028456302.png' }
           ].map((item) => (
             <div key={item.id} className="short-editorial-card tonal-lift-low">
               <div className="card-visual">
@@ -68,17 +68,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 👞 ELITE MALL - THE BOUTIQUE GRID */}
+      {/* 👞 엘리트 몰 - 큐레이션 그리드 */}
       <section className="editorial-section last-section">
         <div className="section-head container">
-           <div className="label-caps accent-color">02 / CURATIONS</div>
-           <h2 className="display-text section-title">Elite Essentials</h2>
+           <div className="label-caps accent-color">02 / 큐레이션</div>
+           <h2 className="display-text section-title">엘리트 에센셜</h2>
         </div>
         
         <div className="curation-list container">
           {[
-            { id: 'shoes', name: 'Elite Air Pivot', desc: 'Surgical precision for every pivot.', img: 'dance_cards_detailed_view_1775029378812.png', tag: 'NEW DROP' },
-            { id: 'silk', name: 'Zen Flow Silk', desc: 'Experience the weightless glide.', img: 'k_dance_line_dance_category_hero_1775029153408.png', tag: 'LOOKBOOK' }
+            { id: 'shoes-1', name: '엘리트 에어 피벗', desc: '모든 피벗에 정교함을 더합니다.', img: 'dance_cards_detailed_view_1775029378812.png', tag: '신상품' },
+            { id: 'gear-1', name: '젠 플로우 실크', desc: '무중력의 부드러움을 경험하세요.', img: 'k_dance_line_dance_category_hero_1775029153408.png', tag: '룩북' }
           ].map((p) => (
             <Link key={p.id} href={`/product/${p.id}`} className="curation-card tonal-lift-high pulse-on-click">
               <div className="curation-visual">
@@ -90,21 +90,21 @@ export default function Home() {
                 <span className="label-caps gold-gradient-text">{p.tag}</span>
                 <h3 className="display-text curation-name">{p.name}</h3>
                 <p className="dim-text">{p.desc}</p>
-                <span className="label-button label-caps">COLLECT NOW</span>
+                <span className="label-button label-caps">지금 소장하기</span>
               </div>
             </Link>
           ))}
         </div>
       </section>
 
-      {/* ✉️ EDITORIAL FOOTER */}
+      {/* ✉️ 푸터 */}
       <footer className="editorial-footer container">
         <div className="footer-line"></div>
         <div className="footer-content">
-          <h2 className="display-text italic">"Defining the future <br/>of senior rhythm."</h2>
+          <h2 className="display-text italic">"시니어 리듬의 <br/>미래를 정의하다."</h2>
           <div className="footer-meta flex-between">
             <span className="label-caps">© 2026 K-DANCE PRIME</span>
-            <span className="label-caps">PRVACY / TERMS</span>
+            <span className="label-caps">개인정보처리방침 / 이용약관</span>
           </div>
         </div>
       </footer>
@@ -130,7 +130,7 @@ export default function Home() {
           background: linear-gradient(to top, var(--background) 10%, rgba(13,14,16,0.2) 50%, rgba(13,14,16,0.6) 100%);
         }
         .hero-content { position: relative; z-index: 10; width: 100%; }
-        .hero-title { font-size: clamp(3.5rem, 15vw, 6rem); margin: 2rem 0 4rem; line-height: 0.95; }
+        .hero-title { font-size: clamp(3.5rem, 10vw, 6rem); margin: 2rem 0 4rem; line-height: 1.1; }
         .hero-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 3rem; }
         .discovery-actions { display: flex; gap: 1.5rem; }
         .scroll-indicator { opacity: 0.4; font-size: 0.65rem; }
@@ -180,12 +180,12 @@ export default function Home() {
         /* Footer */
         .editorial-footer { padding-bottom: 20vh; }
         .footer-line { width: 100%; height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 6rem; }
-        .footer-content h2 { font-size: 3rem; line-height: 1.1; margin-bottom: 4rem; text-align: left; }
+        .footer-content h2 { font-size: 3rem; line-height: 1.2; margin-bottom: 4rem; text-align: left; }
         .footer-meta { opacity: 0.3; font-size: 0.65rem; }
 
         @media (max-width: 768px) {
           .monolith-hero { padding-bottom: 4rem; }
-          .hero-title { font-size: 3.5rem; margin-bottom: 3rem; }
+          .hero-title { font-size: 3rem; margin-bottom: 3rem; }
           .discovery-actions { flex-direction: column; width: 100%; }
           .curation-card { flex-direction: column; text-align: center; gap: 1.5rem; }
           .circle-frame { width: 180px; height: 180px; }

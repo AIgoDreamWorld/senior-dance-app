@@ -9,39 +9,39 @@ export default function Community() {
   const feeds = [
     {
       id: 0,
-      user: "Minji (20s) & Sungho (45s)",
-      title: "K-Latin Challenge: Phase 2 Complete!",
+      user: "김민지 (20대) & 박성호 (40대)",
+      title: "K-라틴 챌린지: 2단계 완성!",
       likes: "1.2k",
       comments: "156",
-      tags: ["#3050PRIME", "#KDANCE", "#LINEDANCE"],
+      tags: ["#3050프라임", "#K댄스", "#라인댄스"],
       videoThumb: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=2938&auto=format&fit=crop"
     },
     {
       id: 1,
-      user: "Sora (24s) & Misook (52s)",
-      title: "Mother & Daughter Line Dance 💃",
+      user: "이소라 (20대) & 정미숙 (50대)",
+      title: "엄마와 딸의 라인댄스 챌린지 💃",
       likes: "3.5k",
       comments: "240",
-      tags: ["#FAMILYDANCE", "#YOUTH", "#GOLDENSHIRT"],
+      tags: ["#가족댄스", "#청춘은지금", "#골든슈즈"],
       videoThumb: "https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=2787&auto=format&fit=crop"
     },
     {
       id: 2,
-      user: "Elite Team (Pro)",
-      title: "New Gold Pro Shoes Wear Test",
+      user: "엘리트 팀 (프로)",
+      title: "신상 골드 프로 슈즈 착용 테스트",
       likes: "890",
       comments: "45",
-      tags: ["#REVIEW", "#PROCHOICE", "#2026EDITION"],
+      tags: ["#제품리뷰", "#전문가추천", "#2026에디션"],
       videoThumb: "https://images.unsplash.com/photo-1516475429286-465d81f91783?q=80&w=2940&auto=format&fit=crop"
     }
   ];
 
   return (
     <div className="community-feed">
-      {/* 🔮 EDITORIAL TABS */}
+      {/* 🔮 에디토리얼 탭 */}
       <div className="feed-tabs container">
-        <button className="tab active label-caps">CHARTS</button>
-        <button className="tab label-caps">LATEST</button>
+        <button className="tab active label-caps">인기 차트</button>
+        <button className="tab label-caps">최신 피드</button>
       </div>
 
       <main className="vertical-stack">
@@ -58,7 +58,7 @@ export default function Community() {
                 <div className="user-avatar tonal-lift-high pulse-on-click"></div>
                 <div className="user-info">
                   <span className="user-name label-caps">{feed.user}</span>
-                  <button className="follow-link label-caps gold-gradient-text">FOLLOW</button>
+                  <button className="follow-link label-caps gold-gradient-text">팔로우</button>
                 </div>
               </div>
               <h2 className="display-text feed-title">{feed.title}</h2>
@@ -78,16 +78,16 @@ export default function Community() {
                </div>
                <div className="i-hit pulse-on-click">
                   <span className="i-icon">▢</span>
-                  <span className="i-label label-caps">SHARE</span>
+                  <span className="i-label label-caps">공유</span>
                </div>
             </aside>
           </section>
         ))}
       </main>
 
-      {/* 🚀 UPLOAD CTA */}
+      {/* 🚀 업로드 버튼 */}
       <button className="fab-upload btn-stitch-primary pulse-on-click">
-         JOIN CHALLENGE +
+         챌린지 참여하기 +
       </button>
 
       <style jsx>{`

@@ -8,10 +8,10 @@ export default function SanctuaryNav() {
   const pathname = usePathname();
 
   const navItems = [
-    { href: '/', label: 'PRIME', icon: '○' },
-    { href: '/community', label: 'FEED', icon: '◇' },
-    { href: '/shop', label: 'SHOP', icon: '▢' },
-    { href: '/profile', label: 'MY', icon: '▽' }
+    { href: '/', label: '홈', icon: '○' },
+    { href: '/community', label: '피드', icon: '◇' },
+    { href: '/shop', label: '쇼핑', icon: '▢' },
+    { href: '/profile', label: '마이', icon: '▽' }
   ];
 
   return (
@@ -51,8 +51,8 @@ export default function SanctuaryNav() {
         .nav-link.active { opacity: 1; color: #D4AF37; }
         .nav-link .icon { font-size: 1.4rem; }
         .label-caps {
-          font-size: 0.7rem; font-weight: 800; text-transform: uppercase;
-          letter-spacing: 0.25em;
+          font-size: 0.75rem; font-weight: 800; text-transform: uppercase;
+          letter-spacing: 0.15em;
         }
 
         @media (max-width: 768px) {
