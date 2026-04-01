@@ -25,6 +25,9 @@ export const viewport = {
   themeColor: "#050505",
 };
 
+import EditorialHeader from "../components/EditorialHeader";
+import SanctuaryNav from "../components/SanctuaryNav";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,7 +35,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+       <body className="stitch-container">
+        <EditorialHeader />
+        <main>{children}</main>
+        <SanctuaryNav />
+      </body>
     </html>
   );
 }
