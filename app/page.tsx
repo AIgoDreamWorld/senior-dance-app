@@ -77,8 +77,10 @@ export default function Home() {
         
         <div className="curation-list container">
           {[
-            { id: 'shoes-1', name: '엘리트 에어 피벗', desc: '모든 피벗에 정교함을 더합니다.', img: 'dance_cards_detailed_view_1775029378812.png', tag: '신상품' },
-            { id: 'gear-1', name: '젠 플로우 실크', desc: '무중력의 부드러움을 경험하세요.', img: 'k_dance_line_dance_category_hero_1775029153408.png', tag: '룩북' }
+            { id: 'essential-01', name: '라라 디바즈 메쉬 댄스화', desc: '초경량 통기성으로 하루 종일 편안하게.', img: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=800&auto=format&fit=crop', tag: '가성비 1위' },
+            { id: 'shoes-01', name: '옵시디언 프로', desc: '전문 가죽 공예로 탄생한 최상급 슈즈.', img: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop', tag: 'BEST SELLER' },
+            { id: 'essential-02', name: 'TS스포츠 알롱제 A1', desc: '한국인 발 체형에 맞춘 단체복 정석.', img: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=800&auto=format&fit=crop', tag: '재구매 1위' },
+            { id: 'wear-01', name: '젠 에디션 퍼포먼스', desc: '룩과 퍼포먼스를 모두 잡은 시그니처.', img: 'https://images.unsplash.com/photo-1539109132314-347596ad99e1?q=80&w=800&auto=format&fit=crop', tag: 'EDITORIAL' }
           ].map((p) => (
             <Link key={p.id} href={`/product/${p.id}`} className="curation-card tonal-lift-high pulse-on-click">
               <div className="curation-visual">

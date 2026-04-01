@@ -52,6 +52,24 @@ export default function EliteMall() {
       img: 'https://images.unsplash.com/photo-1539109132314-347596ad99e1?q=80&w=800&auto=format&fit=crop',
       tag: 'EDITORIAL',
       description: '세련된 실루엣과 통기성을 동시에 잡은 에디토리얼 라인의 대표 의상입니다.'
+    },
+    {
+      id: 'acc-01',
+      title: '실버 라이닝 발목 보호대',
+      price: '₩15,000',
+      category: '액세서리',
+      img: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=800&auto=format&fit=crop',
+      tag: '필수템',
+      description: '부상 방지와 안정적인 턴을 도와주는 고탄성 서포터입니다.'
+    },
+    {
+      id: 'essential-04',
+      title: '컴포트 스트레치 밴드',
+      price: '₩8,900',
+      category: '에센셜',
+      img: 'https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=800&auto=format&fit=crop',
+      tag: '가성비',
+      description: '코어 강화와 유연성 향상을 위한 라인댄스 입문자 필수 밴드입니다.'
     }
   ];
 
@@ -107,7 +125,7 @@ export default function EliteMall() {
           border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 1.5rem;
         }
         .filter-btn {
-          background: none; border: none; color: #fff; opacity: 0.3; cursor: pointer; transition: 0.4s;
+          background: none; border: none; color: var(--foreground); opacity: 0.3; cursor: pointer; transition: 0.4s;
           padding: 0.5rem 0; position: relative;
         }
         .filter-btn.active { opacity: 1; }
@@ -134,11 +152,12 @@ export default function EliteMall() {
            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .product-info { padding: 2rem 0; }
-        .product-name { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 800; opacity: 0.9; }
-        .product-bottom { display: flex; justify-content: space-between; align-items: center; opacity: 0.6; }
-        .price { font-size: 0.75rem; letter-spacing: 0.05em; font-weight: 900; }
-        .buy-now { font-size: 0.65rem; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 2px; transition: 0.3s; }
+        .product-info { padding: 1.5rem 0; color: var(--foreground); }
+        .product-name { font-size: 1.25rem; margin-bottom: 0.5rem; font-weight: 700; opacity: 1; letter-spacing: -0.01em; }
+        .product-desc { font-size: 0.85rem; opacity: 0.6; margin-bottom: 1.5rem; line-height: 1.5; font-weight: 300; }
+        .product-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--surface-ghost); padding-top: 1rem; }
+        .price { font-size: 0.9rem; letter-spacing: 0.02em; font-weight: 700; color: var(--primary); }
+        .buy-now { font-size: 0.7rem; border-bottom: 1px solid var(--surface-ghost); padding-bottom: 2px; transition: 0.3s; opacity: 0.8; }
 
         .product-card:hover img { transform: scale(1.05); opacity: 1; }
         .product-card:hover .buy-now { color: var(--primary); border-color: var(--primary); opacity: 1; }
