@@ -5,15 +5,57 @@ import Link from 'next/link';
 
 export default function EliteMall() {
   const [activeCategory, setActiveCategory] = useState("전체");
+  const categories = ['전체', '슈즈', '의류', '액세서리', '에센셜'];
 
-  const products = [
-    { id: 'shoes-1', name: "엘리트 에어 피벗 v2", price: "₩189,000", tag: "베스트셀러", img: "dance_cards_detailed_view_1775029378812.png", category: "슈즈" },
-    { id: 'gear-1', name: "젠 플로우 실크 셋업", price: "₩245,000", tag: "룩북", img: "k_dance_line_dance_category_hero_1775029153408.png", category: "의류" },
-    { id: 'acc-1', name: "옵시디언 펄스 밴드", price: "₩56,000", tag: "신상품", img: "korean_community_dancing_mix_1775028456302.png", category: "액세서리" },
-    { id: 'shoes-2', name: "골드 프라임 댄서", price: "₩210,000", tag: "리미티드", img: "senior_dance_model_exclusive_1775027245869.png", category: "슈즈" },
+  const goods = [
+    {
+      id: 'essential-01',
+      title: '라라 디바즈 초경량 메쉬 댄스화',
+      price: '₩26,400',
+      category: '에센셜',
+      img: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=800&auto=format&fit=crop',
+      tag: '최저가 보장',
+      description: '통기성이 뛰어난 메쉬 소재와 에어쿠션으로 장시간 댄스에도 발이 편안합니다.'
+    },
+    {
+      id: 'essential-02',
+      title: 'TS스포츠 알롱제 A1 라인댄스화',
+      price: '₩28,900',
+      category: '에센셜',
+      img: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=800&auto=format&fit=crop',
+      tag: '재구매 1위',
+      description: '한국인 발 모양에 최적화된 설계로 단체 주문이 가장 많은 실속형 모델입니다.'
+    },
+    {
+      id: 'essential-03',
+      title: '활동성 극대화 댄스 치마바지 (스커트팬츠)',
+      price: '₩12,900',
+      category: '의류',
+      img: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop',
+      tag: '가성비',
+      description: '찰랑거리는 쉬폰 소재로 체형은 커버하고 스텝은 더 가볍게 만들어줍니다.'
+    },
+    {
+      id: 'shoes-01',
+      title: '옵시디언 프로 라인댄스화',
+      price: '₩185,000',
+      category: '슈즈',
+      img: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop',
+      tag: 'PREMIUM',
+      description: '이탈리아산 프리미엄 가죽과 인체공학적 설계가 적용된 전문가용 댄스화입니다.'
+    },
+    {
+      id: 'wear-01',
+      title: '젠 에디션 퍼포먼스 슈트',
+      price: '₩128,000',
+      category: '의류',
+      img: 'https://images.unsplash.com/photo-1539109132314-347596ad99e1?q=80&w=800&auto=format&fit=crop',
+      tag: 'EDITORIAL',
+      description: '세련된 실루엣과 통기성을 동시에 잡은 에디토리얼 라인의 대표 의상입니다.'
+    }
   ];
 
-  const filteredProducts = activeCategory === "전체" ? products : products.filter(p => p.category === activeCategory);
+  const filteredProducts = activeCategory === "전체" ? goods : goods.filter(p => p.category === activeCategory);
 
   return (
     <div className="elite-mall">
@@ -22,7 +64,7 @@ export default function EliteMall() {
         <h1 className="display-text mall-title gold-gradient-text">엘리트 몰</h1>
         
         <div className="category-filter scroll-hide">
-          {["전체", "슈즈", "의류", "액세서리"].map(cat => (
+          {categories.map(cat => (
             <button 
               key={cat} 
               className={`filter-btn label-caps ${activeCategory === cat ? 'active' : ''}`}
@@ -38,11 +80,12 @@ export default function EliteMall() {
         {filteredProducts.map(product => (
           <Link key={product.id} href={`/product/${product.id}`} className="product-card tonal-lift-low">
             <div className="product-visual">
-              <img src={product.img} alt={product.name} />
+              <img src={product.img} alt={product.title} />
               <span className="card-badge label-caps">{product.tag}</span>
             </div>
             <div className="product-info">
-              <h3 className="display-text product-name">{product.name}</h3>
+              <h3 className="display-text product-name">{product.title}</h3>
+              <p className="product-desc">{product.description}</p>
               <div className="product-bottom">
                  <span className="price label-caps">{product.price}</span>
                  <span className="buy-now label-caps">소장하기 →</span>
