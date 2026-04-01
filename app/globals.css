@@ -1,40 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+KR:wght@400;700&display=swap');
 
 :root {
-  /* Stitch Color Protocol: Cyber-Zen Editorial v2.1 - Pure Obsidian Luxe */
+  /* Stitch Color Protocol: Cyber-Zen Editorial v2.2 - Pure Obsidian Luxe (Default) */
   --background: #0D0E10;    /* The Absolute Void */
   --foreground: #F5F5F7;    /* High-Fidelity Paper */
   --primary: #D4AF37;       /* Signature Burnished Gold */
   --primary-glow: rgba(212, 175, 55, 0.4);
   --on-primary: #121316;
   
-  /* Tonal Surface Hierarchy (Extreme Depth - Pure No-Line) */
-  --surface-1: #121316;     /* Base Lift */
-  --surface-2: #18191D;     /* Floating Component */
-  --surface-3: #222429;     /* Focus / Modal */
+  /* Tonal Surface Hierarchy */
+  --surface-1: #121316;
+  --surface-2: #18191D;
+  --surface-3: #222429;
   --surface-ghost: rgba(255, 255, 255, 0.03); 
   
   --on-surface-muted: #8E8E93;
   --on-surface-dim: #5C5C5E;
+  --glass-bg: rgba(20, 21, 23, 0.7);
 
-  /* Spacing Scale (Aggressive Editorial Silences) */
+  /* Spacing & Typography */
   --gutter: 1.5rem;
-  --luxury-gap: 4rem;      /* The luxury of empty space */
+  --luxury-gap: 4rem;
   --section-gap: 8rem;
-  
-  /* Typography Tokens */
   --font-display: 'Playfair Display', serif;
   --font-accent: 'Noto Serif KR', serif;
   --font-body: 'Manrope', sans-serif;
-  
   --size-display: 5rem;
   --size-h2: 2.5rem;
   --size-label: 0.7rem;
 
-  /* Motion Dynamics */
+  /* Motion */
   --ease-stitch: cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: 0.8s var(--ease-stitch);
   --transition-fast: 0.4s var(--ease-stitch);
+  --theme-transition: background 0.8s var(--ease-stitch), color 0.8s var(--ease-stitch);
+}
+
+[data-theme='ivory'] {
+  /* Ivory Zen - Premium Light Mode */
+  --background: #F9F7F2;    /* Warm Editorial Ivory */
+  --foreground: #1A1C20;    /* Deep Charcoal for legibility */
+  --primary: #B8860B;       /* Deeper Gold for Contrast */
+  --primary-glow: rgba(184, 134, 11, 0.2);
+  --on-primary: #FFFFFF;
+  
+  --surface-1: #FFFFFF;     /* Pure White Lift */
+  --surface-2: #F2EFE9;     /* Soft Beige Lift */
+  --surface-3: #EBE7DD;     /* Deep Shadow */
+  --surface-ghost: rgba(0, 0, 0, 0.04);
+  
+  --on-surface-muted: #626266;
+  --on-surface-dim: #A1A1A6;
+  --glass-bg: rgba(255, 255, 255, 0.75);
 }
 
 * {
@@ -52,6 +69,7 @@ html, body {
   scroll-behavior: smooth;
   height: 100%;
   overflow-x: hidden;
+  transition: var(--theme-transition);
 }
 
 body {
@@ -64,17 +82,20 @@ body {
 
 .tonal-lift-low {
   background: var(--surface-1);
+  transition: var(--theme-transition);
 }
 
 .tonal-lift-high {
   background: var(--surface-2);
+  transition: var(--theme-transition);
 }
 
 /* Glassmorphism 3.0 (Cyber-Zen Standard) */
 .glass {
-  background: rgba(20, 21, 23, 0.7);
+  background: var(--glass-bg);
   backdrop-filter: blur(40px) saturate(180%);
   -webkit-backdrop-filter: blur(40px) saturate(180%);
+  transition: var(--theme-transition);
 }
 
 .glass-floating {

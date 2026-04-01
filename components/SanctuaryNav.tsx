@@ -40,15 +40,16 @@ export default function SanctuaryNav() {
           width: 100%; max-width: 400px; height: 72px; border-radius: 99px;
           border: 1px solid rgba(255,255,255,0.05);
           pointer-events: auto;
-          background: rgba(20, 21, 23, 0.7);
+          background: var(--glass-bg);
           backdrop-filter: blur(40px) saturate(180%);
+          transition: background 0.8s var(--ease-stitch), border 0.8s var(--ease-stitch);
         }
         .nav-link { 
           display: flex; flex-direction: column; align-items: center; 
           gap: 6px; opacity: 0.3; transition: 0.4s; 
-          color: white; text-decoration: none;
+          color: var(--foreground); text-decoration: none;
         }
-        .nav-link.active { opacity: 1; color: #D4AF37; }
+        .nav-link.active { opacity: 1; color: var(--primary); }
         .nav-link .icon { font-size: 1.4rem; }
         .label-caps {
           font-size: 0.75rem; font-weight: 800; text-transform: uppercase;
