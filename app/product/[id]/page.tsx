@@ -26,9 +26,9 @@ export default function ProductDetail() {
       sizes: ['225', '230', '235', '240', '245', '250', '255'],
       img: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=800&auto=format&fit=crop",
       malls: [
-        { name: '쿠팡 (와우)', price: '₩26,400', isCheapest: true, icon: '🚀' },
-        { name: '네이버 쇼핑', price: '₩28,500', isCheapest: false, icon: 'N' },
-        { name: '11번가', price: '₩29,900', isCheapest: false, icon: '11' }
+        { name: '쿠팡 (와우)', price: '₩26,400', isCheapest: true, icon: '🚀', url: 'https://www.coupang.com' },
+        { name: '네이버 쇼핑', price: '₩28,500', isCheapest: false, icon: 'N', url: 'https://shopping.naver.com' },
+        { name: '11번가', price: '₩29,900', isCheapest: false, icon: '11', url: 'https://www.11st.co.kr' }
       ]
     },
     'essential-02': {
@@ -45,9 +45,9 @@ export default function ProductDetail() {
       sizes: ['230', '235', '240', '245', '250', '255', '260'],
       img: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=800&auto=format&fit=crop",
       malls: [
-        { name: '네이버 스토어', price: '₩28,900', isCheapest: true, icon: 'N' },
-        { name: '쿠팡', price: '₩31,200', isCheapest: false, icon: '🚀' },
-        { name: '옥션', price: '₩33,000', isCheapest: false, icon: 'A' }
+        { name: '네이버 스토어', price: '₩28,900', isCheapest: true, icon: 'N', url: 'https://shopping.naver.com' },
+        { name: '쿠팡', price: '₩31,200', isCheapest: false, icon: '🚀', url: 'https://www.coupang.com' },
+        { name: '옥션', price: '₩33,000', isCheapest: false, icon: 'A', url: 'https://www.auction.co.kr' }
       ]
     },
     'shoes-1': {
@@ -64,8 +64,8 @@ export default function ProductDetail() {
       sizes: ['235', '240', '245', '250', '255', '260'],
       img: "/dance_cards_detailed_view_1775029378812.png",
       malls: [
-        { name: 'K-DANCE 단독', price: '₩189,000', isCheapest: true, icon: 'K' },
-        { name: '현대백화점', price: '₩195,000', isCheapest: false, icon: 'H' }
+        { name: 'K-DANCE 단독', price: '₩189,000', isCheapest: true, icon: 'K', url: '#' },
+        { name: '현대백화점', price: '₩195,000', isCheapest: false, icon: 'H', url: 'https://www.ehyundai.com' }
       ]
     }
   };
@@ -101,7 +101,13 @@ export default function ProductDetail() {
             <h4 className="label-caps spec-title">📊 실시간 최저가 비교 (오늘 기준)</h4>
             <div className="mall-list">
               {product.malls.map((mall: any, idx: number) => (
-                <div key={idx} className={`mall-item ${mall.isCheapest ? 'winner' : ''}`}>
+                <a 
+                  key={idx} 
+                  href={mall.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className={`mall-item ${mall.isCheapest ? 'winner' : ''}`}
+                >
                   <div className="mall-info">
                     <span className="mall-icon">{mall.icon}</span>
                     <span className="mall-name">{mall.name}</span>
@@ -109,8 +115,9 @@ export default function ProductDetail() {
                   <div className="price-info">
                     <span className="mall-price">{mall.price}</span>
                     {mall.isCheapest && <span className="winner-badge">BEST</span>}
+                    <span className="external-arrow">↗</span>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
             <p className="update-time dim-text">최근 업데이트: {new Date().toLocaleTimeString()} (실시간 동기화 중)</p>
@@ -191,15 +198,24 @@ export default function ProductDetail() {
         .mall-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
         .mall-item { 
           display: flex; justify-content: space-between; align-items: center; 
-          padding: 1.2rem; background: rgba(255,255,255,0.02); border-radius: 4px; border: 1px solid transparent; transition: 0.3s;
+          padding: 1.2rem; background: rgba(255,255,255,0.02); border-radius: 4px; border: 1px solid transparent; 
+          transition: 0.3s; text-decoration: none; color: inherit; cursor: pointer;
+        }
+        .mall-item:hover { 
+          background: rgba(255,255,255,0.08); transform: translateY(-2px);
+          border-color: rgba(255,255,255,0.1);
         }
         .mall-item.winner { background: rgba(255,215,0,0.05); border-color: rgba(255,215,0,0.2); }
+        .mall-item.winner:hover { background: rgba(255,215,0,0.1); }
+        
         .mall-info { display: flex; align-items: center; gap: 1rem; }
         .mall-icon { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.1); border-radius: 50%; font-size: 0.7rem; font-weight: 900; }
         .mall-name { font-size: 1rem; opacity: 0.8; }
         .price-info { display: flex; align-items: center; gap: 1rem; }
         .mall-price { font-weight: 700; }
         .winner-badge { padding: 0.2rem 0.6rem; background: var(--primary); color: #000; font-size: 0.6rem; font-weight: 900; border-radius: 2px; }
+        .external-arrow { font-size: 0.8rem; opacity: 0.3; transition: 0.3s; }
+        .mall-item:hover .external-arrow { opacity: 1; transform: translate(2px, -2px); color: var(--primary); }
         .update-time { font-size: 0.7rem; margin-top: 1.5rem; text-align: right; opacity: 0.4; }
 
         .spec-title { font-size: 0.75rem; margin-bottom: 1.5rem; opacity: 0.9; }
