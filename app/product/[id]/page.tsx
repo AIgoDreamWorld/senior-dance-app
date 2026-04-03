@@ -65,7 +65,7 @@ export default function ProductDetail() {
       img: "/dance_cards_detailed_view_1775029378812.png",
       malls: [
         { name: 'Capezio 본사', price: '₩189,000', isCheapest: true, icon: 'C', url: 'https://www.capezio.com/catalogsearch/result/?q=sneaker' },
-        { name: '신세계몰', price: '₩195,000', isCheapest: false, icon: 'S', url: 'https://search.shopping.naver.com/search/all?query=Capezio+Dance+Shoes' }
+        { name: '신세계몰', price: '₩195,000', isCheapest: false, icon: 'S', url: 'https://www.ssg.com/search.ssg?query=Capezio' }
       ]
     }
   };
