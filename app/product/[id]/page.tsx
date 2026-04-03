@@ -27,8 +27,8 @@ export default function ProductDetail() {
       img: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=800&auto=format&fit=crop",
       malls: [
         { name: '쿠팡 (와우)', price: '₩26,400', isCheapest: true, icon: '🚀', url: 'https://www.coupang.com/np/search?q=라라+디바즈+초경량+메쉬+댄스화' },
-        { name: '네이버 쇼핑', price: '₩28,500', isCheapest: false, icon: 'N', url: 'https://search.shopping.naver.com/search/all?query=라라+디바즈+댄스화' },
-        { name: '11번가', price: '₩29,900', isCheapest: false, icon: '11', url: 'https://search.11st.co.kr/pc/total-search?kwd=라라+디바즈+댄스화' }
+        { name: '네이버 쇼핑', price: '₩28,500', isCheapest: false, icon: 'N', url: 'https://search.shopping.naver.com/search/all?query=라라+디바즈+초경량+메쉬+댄스화' },
+        { name: '11번가', price: '₩29,900', isCheapest: false, icon: '11', url: 'https://search.11st.co.kr/pc/total-search?kwd=라라+디바즈+초경량+메쉬+댄스화' }
       ]
     },
     'essential-02': {
@@ -47,7 +47,7 @@ export default function ProductDetail() {
       malls: [
         { name: '네이버 스토어', price: '₩28,900', isCheapest: true, icon: 'N', url: 'https://search.shopping.naver.com/search/all?query=TS스포츠+알롱제+A1' },
         { name: '쿠팡', price: '₩31,200', isCheapest: false, icon: '🚀', url: 'https://www.coupang.com/np/search?q=TS스포츠+알롱제+A1' },
-        { name: '옥션', price: '₩33,000', isCheapest: false, icon: 'A', url: 'https://browse.auction.co.kr/search?keyword=TS스포츠+알롱제+A1' }
+        { name: '11번가', price: '₩33,000', isCheapest: false, icon: '11', url: 'https://search.11st.co.kr/pc/total-search?kwd=TS스포츠+알롱제+A1' }
       ]
     },
     'shoes-1': {
@@ -64,8 +64,8 @@ export default function ProductDetail() {
       sizes: ['235', '240', '245', '250', '255', '260'],
       img: "/dance_cards_detailed_view_1775029378812.png",
       malls: [
-        { name: 'K-DANCE 단독', price: '₩189,000', isCheapest: true, icon: 'K', url: '#' },
-        { name: '현대백화점', price: '₩195,000', isCheapest: false, icon: 'H', url: 'https://www.ehyundai.com' }
+        { name: 'Capezio 본사', price: '₩189,000', isCheapest: true, icon: 'C', url: 'https://www.capezio.com/catalogsearch/result/?q=sneaker' },
+        { name: '신세계몰', price: '₩195,000', isCheapest: false, icon: 'S', url: 'https://search.shopping.naver.com/search/all?query=Capezio+Dance+Shoes' }
       ]
     }
   };
