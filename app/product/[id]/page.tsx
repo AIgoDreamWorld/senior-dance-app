@@ -26,9 +26,9 @@ export default function ProductDetail() {
       sizes: ['225', '230', '235', '240', '245', '250', '255'],
       img: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=800&auto=format&fit=crop",
       malls: [
-        { name: '쿠팡 (와우)', price: '₩26,400', isCheapest: true, icon: '🚀', url: 'https://www.coupang.com/vp/products/6532840505' },
-        { name: '네이버 쇼핑', price: '₩28,500', isCheapest: false, icon: 'N', url: 'https://smartstore.naver.com/laradivaz/products/6703554664' },
-        { name: '11번가', price: '₩29,900', isCheapest: false, icon: '11', url: 'https://www.11st.co.kr/products/4472391036' }
+        { name: '쿠팡 (와우)', price: '₩26,400', isCheapest: true, icon: '🚀', url: 'https://www.coupang.com/vp/products/6532840505', score: 4.8, clicks: 1250 },
+        { name: '네이버 쇼핑', price: '₩28,500', isCheapest: false, icon: 'N', url: 'https://smartstore.naver.com/laradivaz/products/6703554664', score: 4.9, clicks: 890 },
+        { name: '11번가', price: '₩29,900', isCheapest: false, icon: '11', url: 'https://www.11st.co.kr/products/4472391036', score: 4.5, clicks: 420 }
       ]
     },
     'essential-02': {
@@ -45,9 +45,9 @@ export default function ProductDetail() {
       sizes: ['230', '235', '240', '245', '250', '255', '260'],
       img: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=800&auto=format&fit=crop",
       malls: [
-        { name: '네이버 스토어', price: '₩28,900', isCheapest: true, icon: 'N', url: 'https://smartstore.naver.com/tsdance/products/510103759' },
-        { name: '쿠팡', price: '₩31,200', isCheapest: false, icon: '🚀', url: 'https://www.coupang.com/vp/products/128362681' },
-        { name: '11번가', price: '₩33,000', isCheapest: false, icon: '11', url: 'https://www.11st.co.kr/products/11364536' }
+        { name: '네이버 스토어', price: '₩28,900', isCheapest: true, icon: 'N', url: 'https://smartstore.naver.com/tsdance/products/510103759', score: 5.0, clicks: 2100 },
+        { name: '쿠팡', price: '₩31,200', isCheapest: false, icon: '🚀', url: 'https://www.coupang.com/vp/products/128362681', score: 4.7, clicks: 1450 },
+        { name: '11번가', price: '₩33,000', isCheapest: false, icon: '11', url: 'https://www.11st.co.kr/products/11364536', score: 4.4, clicks: 310 }
       ]
     },
     'shoes-1': {
@@ -64,8 +64,8 @@ export default function ProductDetail() {
       sizes: ['235', '240', '245', '250', '255', '260'],
       img: "/dance_cards_detailed_view_1775029378812.png",
       malls: [
-        { name: 'Capezio 공식', price: '₩189,000', isCheapest: true, icon: 'C', url: 'https://www.capezio.com/rock-it-dane-sneaker' },
-        { name: '신세계몰', price: '₩195,000', isCheapest: false, icon: 'S', url: 'https://www.ssg.com/item/itemView.ssg?itemId=1000523277317' }
+        { name: 'Capezio 공식', price: '₩189,000', isCheapest: true, icon: 'C', url: 'https://www.capezio.com/rock-it-dane-sneaker', score: 4.9, clicks: 520 },
+        { name: '신세계몰', price: '₩195,000', isCheapest: false, icon: 'S', url: 'https://www.ssg.com/item/itemView.ssg?itemId=1000523277317', score: 4.8, clicks: 310 }
       ]
     }
   };
@@ -98,7 +98,7 @@ export default function ProductDetail() {
           
           {/* 📊 쇼핑몰 최저가 비교 (신규 추가) */}
           <div id="lowest-price-section" className="comparison-box glass-card">
-            <h4 className="label-caps spec-title">📊 실시간 최저가 비교 (오늘 기준)</h4>
+            <h4 className="label-caps spec-title">📊 실시간 최저가 및 구매 만족도</h4>
             <div className="mall-list">
               {product.malls.map((mall: any, idx: number) => (
                 <a 
@@ -111,11 +111,19 @@ export default function ProductDetail() {
                 >
                   <div className="mall-info">
                     <span className="mall-icon">{mall.icon}</span>
-                    <span className="mall-name">{mall.name}</span>
+                    <div>
+                      <div className="mall-name">{mall.name}</div>
+                      <div className="mall-score-row">
+                        <span className="star-rating">★ {mall.score}</span>
+                        <span className="click-count dim-text">클릭 {mall.clicks}</span>
+                      </div>
+                    </div>
                   </div>
                   <div className="price-info">
-                    <span className="mall-price">{mall.price}</span>
-                    {mall.isCheapest && <span className="winner-badge">BEST</span>}
+                    <div className="price-stack">
+                      <span className="mall-price">{mall.price}</span>
+                      {mall.isCheapest && <span className="winner-badge">최저가</span>}
+                    </div>
                     <span className="external-arrow">↗</span>
                   </div>
                 </a>
