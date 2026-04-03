@@ -13,7 +13,7 @@ export default function Profile() {
     ],
     collections: [
       { id: 1, title: "#3050라인댄스", img: "youthful_passionate_dancer_model_1775027942388.png" },
-      { id: 2, title: "#엘리트슈즈_착용샷", img: "senior_dance_model_exclusive_1775027245869.png" },
+      { id: 2, title: "#엘리트슈즈_착용샷", img: "prime_dance_model_exclusive_1775027245869.png" },
       { id: 3, title: "#부천_정기공연", img: "korean_community_dancing_mix_1775028456302.png" }
     ]
   };

@@ -1,203 +1,210 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import EditorialHeader from '@/components/EditorialHeader';
+import SanctuaryNav from '@/components/SanctuaryNav';
+import { products } from '@/lib/products';
 
 export default function Home() {
+  const [activeCategory, setActiveCategory] = useState('인기 상품');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const categories = ['인기 상품', '신발', '용품', '의류/가방'];
+
+  const filteredProducts = products.filter(p => {
+    if (activeCategory === '인기 상품') return true;
+    return p.category === activeCategory;
+  }).slice(0, 8);
+
+  const heroProduct = products.find(p => p.id === 'essential-01') || products[0];
+
+  if (!mounted) return null;
+
   return (
-    <>
-      {/* 🌑 전역 배경 효과 */}
-      <div className="sanctuary-glow"></div>
-
-      {/* 🎭 비대칭 스토리텔링 히어로 */}
-      <section className="monolith-hero">
-        <div className="hero-background">
-          <img 
-            src="premium_korean_dance_community_1775029746666.png" 
-            alt="Cyber-Zen Performance" 
-            className="hero-media"
-          />
-          <div className="media-overlay"></div>
-        </div>
-        
-        <div className="hero-content container">
-          <div className="editorial-meta reveal-text">
-            <span className="label-caps">K-DANCE PRIME 큐레이션 / 2026 에디션</span>
-          </div>
-          <h1 className="display-text hero-title">
-            <span className="reveal-text">삶의 정교한</span><br/>
-            <span className="reveal-text gold-gradient-text italic">리듬</span>
-          </h1>
-          
-          <div className="hero-bottom flex-between">
-            <div className="discovery-actions">
-              <Link href="/community" className="btn-stitch-primary">피드 둘러보기</Link>
-              <Link href="/shop" className="btn-stitch-secondary">룩북 보기</Link>
+    <div className="home-layout">
+      <EditorialHeader />
+      
+      <main className="content-container">
+        {/* 🏆 히어로 섹션 */}
+        <section className="hero-section container">
+          <div className="hero-grid tonal-lift-high scroll-reveal">
+            <div className="hero-visual">
+               <img src={heroProduct.img} alt={heroProduct.name} className="hero-image" />
+               <div className="vignette"></div>
             </div>
-            <div className="scroll-indicator label-caps">스크롤하여 발견하기 ↓</div>
-          </div>
-        </div>
-      </section>
-
-      {/* 🎬 댄스 버티컬 - 젠 쇼츠 */}
-      <section className="editorial-section">
-        <div className="section-head container">
-          <div className="label-caps accent-color">01 / 라이브 피드</div>
-          <div className="flex-between align-end">
-            <h2 className="display-text section-title">Zen 쇼츠</h2>
-            <Link href="/community" className="label-caps text-link">전체 보기 →</Link>
-          </div>
-        </div>
-        
-        <div className="shorts-slider scroll-hide">
-          {[
-            { id: 1, title: '라인의 영혼', tag: '프리미엄', img: 'youthful_passionate_dancer_model_1775027942388.png' },
-            { id: 2, title: '옵시디언 리듬', tag: '리미티드', img: 'senior_dance_model_exclusive_1775027245869.png' },
-            { id: 3, title: '골든 펄스', tag: '엘리트', img: 'korean_community_dancing_mix_1775028456302.png' }
-          ].map((item) => (
-            <div key={item.id} className="short-editorial-card tonal-lift-low">
-              <div className="card-visual">
-                <img src={item.img} alt={item.title} />
-                <div className="card-overlay">
-                  <span className="label-caps card-tag">{item.tag}</span>
-                  <h3 className="display-text card-title">{item.title}</h3>
-                </div>
-              </div>
+            <div className="hero-content">
+              <span className="label-caps accent-text gold-gradient-text" style={{ fontSize: '0.7rem' }}>2026 PRIME CURATION</span>
+              <h1 className="display-text main-title">
+                {heroProduct.name.split(' ')[0]} <br/> 
+                <span className="italic-text">Prime Collection</span>
+              </h1>
+              <p className="hero-desc dim-text">
+                전세계 댄서들이 선택한 최고의 성능과 디자인. <br/>
+                K-DANCE PRIME에서만 만날 수 있는 가성비 셀렉션.
+              </p>
+              <Link href={`/product/${heroProduct.id}`} className="btn-stitch-primary hero-btn">
+                PREVIEW ITEM
+              </Link>
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* 👞 엘리트 몰 - 큐레이션 그리드 */}
-      <section className="editorial-section last-section">
-        <div className="section-head container">
-           <div className="label-caps accent-color">02 / 큐레이션</div>
-           <h2 className="display-text section-title">엘리트 에센셜</h2>
-        </div>
-        
-        <div className="curation-list container">
-          {[
-            { id: 'essential-01', name: '라라 디바즈 메쉬 댄스화', desc: '초경량 통기성으로 하루 종일 편안하게.', img: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=800&auto=format&fit=crop', tag: '가성비 1위' },
-            { id: 'shoes-01', name: '옵시디언 프로', desc: '전문 가죽 공예로 탄생한 최상급 슈즈.', img: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop', tag: 'BEST SELLER' },
-            { id: 'essential-02', name: 'TS스포츠 알롱제 A1', desc: '한국인 발 체형에 맞춘 단체복 정석.', img: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=800&auto=format&fit=crop', tag: '재구매 1위' },
-            { id: 'wear-01', name: '젠 에디션 퍼포먼스', desc: '룩과 퍼포먼스를 모두 잡은 시그니처.', img: 'https://images.unsplash.com/photo-1539109132314-347596ad99e1?q=80&w=800&auto=format&fit=crop', tag: 'EDITORIAL' }
-          ].map((p) => (
-            <Link key={p.id} href={`/product/${p.id}`} className="curation-card tonal-lift-high pulse-on-click">
-              <div className="curation-visual">
-                <div className="circle-frame">
-                  <img src={p.img} alt={p.name} />
+        {/* 🏷️ 카테고리 필터 */}
+        <section className="categories container">
+          <div className="category-scroll-wrapper">
+             <div className="category-list">
+                {categories.map((cat) => (
+                  <button 
+                    key={cat} 
+                    className={`cat-tab label-caps ${activeCategory === cat ? 'active' : ''}`}
+                    onClick={() => setActiveCategory(cat)}
+                  >
+                    {cat}
+                  </button>
+                ))}
+             </div>
+          </div>
+        </section>
+
+        {/* 🛍️ 제품 그리드 */}
+        <section className="product-grid container">
+          {filteredProducts.map((p) => (
+            <Link href={`/product/${p.id}`} key={p.id} className="p-card-link">
+              <div className="p-card tonal-lift-low">
+                <div className="p-image-wrap">
+                  <img src={p.img} alt={p.name} className="p-image" />
+                  <div className="p-tag label-caps">{p.tag}</div>
                 </div>
-              </div>
-              <div className="curation-info">
-                <span className="label-caps gold-gradient-text">{p.tag}</span>
-                <h3 className="display-text curation-name">{p.name}</h3>
-                <p className="dim-text">{p.desc}</p>
-                <span className="label-button label-caps">지금 소장하기</span>
+                <div className="p-info">
+                  <span className="p-cat label-caps dim-text">{p.category}</span>
+                  <h3 className="p-title">{p.name}</h3>
+                  <div className="p-footer">
+                    <span className="p-price">₩{p.price}</span>
+                    <span className="p-buy label-caps">VIEW DETAILS <span className="arrow">→</span></span>
+                  </div>
+                </div>
               </div>
             </Link>
           ))}
-        </div>
-      </section>
+        </section>
 
-      {/* ✉️ 푸터 */}
-      <footer className="editorial-footer container">
+        {/* 👟 프리미엄 배너 */}
+        <section className="editorial-banner container">
+          <div className="banner-content glass scroll-reveal">
+             <div className="banner-text">
+                <h2 className="display-text gold-gradient-text" style={{ fontSize: '2rem' }}>K-DANCE PRIME ACADEMY</h2>
+                <p className="dim-text">전문 강사진이 직접 검수하고 선별한 최적의 댄스 장비. <br/> 당신의 첫 걸음이 완벽하도록 돕습니다.</p>
+             </div>
+             <button className="btn-stitch-secondary label-caps" style={{ padding: '1rem 2.5rem' }}>LEARN MORE</button>
+          </div>
+        </section>
+      </main>
+
+      <SanctuaryNav />
+
+      <footer className="main-footer container">
         <div className="footer-line"></div>
-        <div className="footer-content">
-          <h2 className="display-text italic">"시니어 리듬의 <br/>미래를 정의하다."</h2>
-          <div className="footer-meta flex-between">
-            <span className="label-caps">© 2026 K-DANCE PRIME</span>
-            <span className="label-caps">개인정보처리방침 / 이용약관</span>
+        <div className="footer-content editorial-meta">
+          <div className="footer-left">
+            <span className="logo-text gold-gradient-text">K-DANCE PRIME</span>
+            <p className="dim-text">© 2026 NEXT GEN DANCE CURATION PLATFORM. <br/> DESIGNED FOR PERFORMANCE.</p>
+          </div>
+          <div className="footer-links label-caps">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Contact</a>
           </div>
         </div>
       </footer>
 
       <style jsx>{`
-        .container {
-          padding-left: var(--gutter);
-          padding-right: var(--gutter);
+        .home-layout { min-height: 100vh; background: var(--background); padding-top: 6rem; padding-bottom: 8rem; }
+        
+        .hero-section { margin-bottom: 6rem; }
+        .hero-grid { 
+           display: grid; grid-template-columns: 1fr 1fr; 
+           background: var(--surface-ghost); border-radius: 24px; overflow: hidden;
+           height: 500px;
+        }
+        .hero-visual { position: relative; width: 100%; height: 100%; overflow: hidden; }
+        .hero-image { width: 100%; height: 100%; object-fit: cover; transition: 5s ease; scale: 1.05; }
+        .hero-grid:hover .hero-image { transform: scale(1.15); }
+        .vignette { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, transparent 50%); }
+
+        .hero-content { display: flex; flex-direction: column; justify-content: center; padding: 4.5rem; gap: 1.5rem; }
+        .main-title { font-size: 4rem; line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; }
+        .italic-text { font-style: italic; font-weight: 300; }
+        .hero-desc { font-size: 1.1rem; line-height: 1.8; max-width: 80%; }
+        .hero-btn { align-self: flex-start; padding: 1.25rem 3rem; margin-top: 1rem; }
+
+        .categories { margin-bottom: 4rem; position: sticky; top: 5rem; z-index: 50; }
+        .category-scroll-wrapper { background: var(--background); padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .category-list { display: flex; gap: 1.5rem; overflow-x: auto; -ms-overflow-style: none; scrollbar-width: none; }
+        .cat-tab { 
+          background: none; border: 1px solid rgba(255,255,255,0.1); color: var(--foreground);
+          padding: 0.6rem 2.5rem; border-radius: 99px; cursor: pointer; transition: 0.4s;
+          white-space: nowrap; font-size: 0.75rem;
+        }
+        .cat-tab:hover { background: var(--surface-ghost); border-color: var(--primary); }
+        .cat-tab.active { background: var(--foreground); color: var(--background); border-color: var(--foreground); }
+
+        .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; margin-bottom: 8rem; }
+        .p-card-link { text-decoration: none; color: inherit; }
+        .p-card { border-radius: 16px; transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1); height: 100%; display: flex; flex-direction: column; }
+        .p-card:hover { transform: translateY(-12px); border-color: var(--primary); }
+        
+        .p-image-wrap { position: relative; aspect-ratio: 1/1.2; border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem; background: var(--surface); }
+        .p-image { width: 100%; height: 100%; object-fit: cover; transition: 1.2s; }
+        .p-card:hover .p-image { transform: scale(1.08); }
+        .p-tag { 
+          position: absolute; top: 1rem; right: 1rem; background: var(--primary); color: #000;
+          padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.55rem; font-weight: 800;
         }
 
-        .flex-between { display: flex; justify-content: space-between; align-items: center; }
-        .align-end { align-items: flex-end; }
-        .italic { font-style: italic; }
+        .p-info { padding: 0 0.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+        .p-cat { font-size: 0.6rem; margin-bottom: 0.5rem; display: block; letter-spacing: 0.1em; color: var(--primary); }
+        .p-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.5rem; line-height: 1.3; min-height: 2.6rem; }
+        
+        .p-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1.25rem; }
+        .p-price { font-size: 1.1rem; font-weight: 800; font-family: var(--font-accent); }
+        .p-buy { font-size: 0.65rem; color: var(--primary); font-weight: 700; transition: 0.4s; }
+        .p-buy .arrow { margin-left: 0.25rem; display: inline-block; transition: 0.4s; }
+        .p-card:hover .p-buy .arrow { transform: translateX(4px); }
 
-        /* Hero Section */
-        .monolith-hero {
-          height: 100vh; position: relative; display: flex; align-items: flex-end; padding-bottom: 6rem;
+        .editorial-banner { margin-bottom: 8rem; }
+        .banner-content { 
+          padding: 4rem; border-radius: 32px; display: flex; justify-content: space-between; align-items: center;
+          border: 1px solid rgba(212,175,55,0.2); background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.05) 100%);
         }
-        .hero-background { position: absolute; inset: 0; z-index: 1; }
-        .hero-media { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5) contrast(1.1); }
-        .media-overlay {
-          position: absolute; inset: 0;
-          background: linear-gradient(to top, var(--background) 10%, rgba(13,14,16,0.2) 50%, rgba(13,14,16,0.6) 100%);
-        }
-        .hero-content { position: relative; z-index: 10; width: 100%; }
-        .hero-title { font-size: clamp(3.5rem, 10vw, 6rem); margin: 2rem 0 4rem; line-height: 1.1; }
-        .hero-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 3rem; }
-        .discovery-actions { display: flex; gap: 1.5rem; }
-        .scroll-indicator { opacity: 0.4; font-size: 0.65rem; }
+        .banner-text { display: flex; flex-direction: column; gap: 1rem; }
 
-        /* General Sections */
-        .editorial-section { padding-top: var(--section-gap); }
-        .section-head { margin-bottom: 4rem; }
-        .section-title { font-size: clamp(2rem, 8vw, 3rem); margin-top: 0.5rem; }
-        .accent-color { color: var(--primary); }
+        .main-footer { padding-bottom: 10rem; }
+        .footer-line { width: 100%; height: 1px; background: rgba(255,255,255,0.05); margin-bottom: 3rem; }
+        .footer-content { display: flex; justify-content: space-between; align-items: flex-start; }
+        .logo-text { font-size: 1.2rem; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 1rem; }
+        .footer-links { display: flex; gap: 2rem; font-size: 0.65rem; color: rgba(255,255,255,0.4); }
+        .footer-links a { text-decoration: none; color: inherit; transition: 0.3s; }
+        .footer-links a:hover { color: var(--primary); }
 
-        /* Shorts Slider */
-        .shorts-slider {
-          display: flex; gap: 2rem; overflow-x: auto; padding: 0 var(--gutter) 4rem;
-          scroll-snap-type: x mandatory;
+        .gold-gradient-text {
+          background: linear-gradient(135deg, #F2CA50 0%, #D4AF37 50%, #B8860B 100%);
+          -webkit-background-clip: text; background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
-        .short-editorial-card {
-          min-width: 320px; height: 560px; flex-shrink: 0;
-          border-radius: 4px; overflow: hidden; scroll-snap-align: start;
-          transition: 0.6s var(--ease-stitch);
-        }
-        .card-visual { height: 100%; position: relative; }
-        .card-visual img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: 1.2s var(--ease-stitch); }
-        .card-overlay {
-          position: absolute; inset: 0; padding: 2.5rem;
-          display: flex; flex-direction: column; justify-content: flex-end;
-          background: linear-gradient(to top, var(--background) 0%, transparent 60%);
-        }
-        .card-title { font-size: 1.75rem; margin-top: 0.5rem; font-weight: 300; }
-        .short-editorial-card:hover img { transform: scale(1.08); opacity: 1; }
 
-        /* Curation Grid */
-        .curation-list { display: grid; gap: 3rem; margin-bottom: var(--section-gap); }
-        .curation-card {
-           display: flex; align-items: center; gap: 2.5rem; padding: 3rem 2rem;
-           border-radius: 2px; transition: var(--transition-fast);
-        }
-        .circle-frame {
-           width: 140px; height: 140px; border-radius: 50%; overflow: hidden;
-           background: var(--surface-3); box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-        }
-        .circle-frame img { width: 100%; height: 100%; object-fit: cover; }
-        .curation-info { flex: 1; }
-        .curation-name { font-size: 1.5rem; margin: 0.5rem 0 1rem; }
-        .dim-text { color: var(--on-surface-muted); line-height: 1.6; margin-bottom: 2rem; }
-        .label-button { color: var(--primary); border-bottom: 1px solid var(--primary); padding-bottom: 4px; cursor: pointer; }
-
-        /* Footer */
-        .editorial-footer { padding-bottom: 20vh; }
-        .footer-line { width: 100%; height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 6rem; }
-        .footer-content h2 { font-size: 3rem; line-height: 1.2; margin-bottom: 4rem; text-align: left; }
-        .footer-meta { opacity: 0.3; font-size: 0.65rem; }
-
-        @media (max-width: 768px) {
-          .monolith-hero { min-height: 70vh; padding-top: 12rem; }
-          .display-text { font-size: 2.8rem; }
-          .curation-list { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
-          .curation-card { flex-direction: column; gap: 1rem; text-align: center; }
-          .curation-card .product-visual { width: 100%; height: 180px; }
-          .curation-info .display-text { font-size: 1rem; line-height: 1.3; }
-          .curation-card:hover { transform: translateY(-5px); }
-          .discovery-actions { flex-direction: column; width: 100%; }
-          .circle-frame { width: 180px; height: 180px; }
-          .footer-content h2 { font-size: 2rem; }
+        @media (max-width: 1024px) {
+           .hero-grid { grid-template-columns: 1fr; height: auto; }
+           .hero-content { padding: 3rem; }
+           .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+           .main-title { font-size: 2.5rem; }
+           .banner-content { flex-direction: column; text-align: center; gap: 2.5rem; padding: 3rem 1.5rem; }
         }
       `}</style>
-    </>
+    </div>
   );
 }
