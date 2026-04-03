@@ -9,11 +9,11 @@ import SanctuaryNav from '@/components/SanctuaryNav';
 export default function ProductDetail() {
   const { id } = useParams();
   const router = useRouter();
-  const [selectedSize, setSelectedSize] = useState('245');
 
   // Convert id to string safely
   const productId = Array.isArray(id) ? id[0] : id;
   const product = productId ? productData[productId] : null;
+  const [selectedSize, setSelectedSize] = useState(product?.sizes?.[0] || '245');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -58,57 +58,36 @@ export default function ProductDetail() {
       <main className="product-container container">
         {/* 🖼️ 이미지 섹션 */}
         <div className="product-gallery">
-          <div className="main-stage tonal-lift-high">
+          <div className="main-stage tonal-lift-high shadow-premium">
             <img src={product.img} alt={product.name} className="main-image" />
             <div className="staged-label label-caps">{product.category}</div>
           </div>
           <div className="gallery-thumbs scroll-hide">
-             {[1,2,3].map(i => <div key={i} className="thumb-frame tonal-lift-low"></div>)}
+             {[1,2,3].map(i => <div key={i} className="thumb-frame tonal-lift-low" style={{backgroundImage: `url(${product.img})`, backgroundSize: 'cover', backgroundPosition: 'center'}}></div>)}
           </div>
         </div>
 
         {/* 📝 상세 정보 섹션 */}
         <div className="product-details editorial-meta">
-          <div className="brand-breadcrumb label-caps accent-color">SHOPPING / {product.category}</div>
+          <div className="brand-breadcrumb label-caps accent-color">OFFICIAL STORE / {product.category}</div>
           <h1 className="display-text product-title gold-gradient-text">{product.name}</h1>
-          <div className="price-tag display-text">₩{product.price} <span className="starting-label">최저가 보증</span></div>
+          <div className="price-tag display-text">₩{product.price} <span className="starting-label">검증된 최저가 결제</span></div>
           
           <p className="product-desc dim-text">{product.description}</p>
           
-          {/* 📊 쇼핑몰 최저가 비교 */}
-          <div id="lowest-price-section" className="comparison-box glass-card">
-            <h4 className="label-caps spec-title">📊 실시간 온라인 최저가 비교</h4>
-            <div className="mall-list">
-              {product.malls.map((mall: any, idx: number) => (
-                <a 
-                  key={idx} 
-                  href={mall.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  className={`mall-item ${mall.isCheapest ? 'winner' : ''}`}
-                >
-                  <div className="mall-info">
-                    <span className="mall-icon">{mall.icon}</span>
-                    <div>
-                      <div className="mall-name">{mall.name}</div>
-                      <div className="mall-score-row">
-                        <span className="star-rating">★ {mall.score || 4.8}</span>
-                        <span className="click-count dim-text">클릭 {mall.clicks || (idx + 1) * 1000}+</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="price-info">
-                    <div className="price-stack" style={{ textAlign: 'right' }}>
-                      <span className="mall-price">{mall.price}</span>
-                      {mall.isCheapest && <span className="winner-badge">최저가</span>}
-                    </div>
-                    <span className="external-arrow">↗</span>
-                  </div>
-                </a>
-              ))}
-            </div>
-            <p className="update-time dim-text">최근 업데이트: {new Date().toLocaleTimeString()} (구매 전 가격 확인 필수)</p>
+          {/* ✅ 직행 결제 섹션 */}
+          <div className="glass-card direct-access-card" style={{ padding: '2rem', marginBottom: '2rem', border: '1px solid rgba(212,175,55,0.2)' }}>
+            <div className="label-caps" style={{ color: 'var(--primary)', marginBottom: '1rem', fontSize: '0.7rem' }}>🔒 안전한 직영/메이저 쇼핑몰 결제</div>
+            <button 
+              className="btn-stitch-primary buy-btn pulse-on-click"
+              style={{ width: '100%', height: '80px', fontSize: '1.1rem', fontWeight: 800, letterSpacing: '0.05em' }}
+              onClick={() => window.open(product.purchaseUrl, '_blank')}
+            >
+              지금 바로 주문하기 ↗
+            </button>
+            <p className="dim-text" style={{ fontSize: '0.7rem', marginTop: '1rem', textAlign: 'center' }}>
+              * 클릭 시 해당 쇼핑몰의 상품 결제(옵션선택) 페이지로 즉시 이동합니다.
+            </p>
           </div>
 
           <div className="detail-specs">
@@ -119,7 +98,7 @@ export default function ProductDetail() {
           </div>
 
           <div className="size-selector">
-            <h4 className="label-caps spec-title">사이즈 선택</h4>
+            <h4 className="label-caps spec-title">사이즈 안내</h4>
             <div className="size-grid">
               {product.sizes.map((size: string) => (
                 <button 
@@ -136,18 +115,15 @@ export default function ProductDetail() {
           <div className="purchase-actions sticky-mobile">
              <button 
                className="btn-stitch-primary buy-btn pulse-on-click"
-               onClick={() => {
-                 const currentMall = product.malls.find(m => m.isCheapest) || product.malls[0];
-                 window.open(currentMall.url, '_blank', 'noopener,noreferrer');
-               }}
+               onClick={() => window.open(product.purchaseUrl, '_blank')}
              >
-               최저가 몰로 바로 이동
+               결제 페이지 이동
              </button>
              <button 
                className="btn-stitch-secondary cart-btn pulse-on-click"
                onClick={() => alert('내 쇼핑 리스트에 저장되었습니다! ✨')}
              >
-               관심상품 보관
+               찜하기
              </button>
           </div>
         </div>
