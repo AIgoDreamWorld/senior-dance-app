@@ -186,10 +186,14 @@ export default function Home() {
         .footer-meta { opacity: 0.3; font-size: 0.65rem; }
 
         @media (max-width: 768px) {
-          .monolith-hero { padding-bottom: 4rem; }
-          .hero-title { font-size: 3rem; margin-bottom: 3rem; }
+          .monolith-hero { min-height: 70vh; padding-top: 12rem; }
+          .display-text { font-size: 2.8rem; }
+          .curation-list { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
+          .curation-card { flex-direction: column; gap: 1rem; text-align: center; }
+          .curation-card .product-visual { width: 100%; height: 180px; }
+          .curation-info .display-text { font-size: 1rem; line-height: 1.3; }
+          .curation-card:hover { transform: translateY(-5px); }
           .discovery-actions { flex-direction: column; width: 100%; }
-          .curation-card { flex-direction: column; text-align: center; gap: 1.5rem; }
           .circle-frame { width: 180px; height: 180px; }
           .footer-content h2 { font-size: 2rem; }
         }

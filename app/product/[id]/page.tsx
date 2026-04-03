@@ -97,7 +97,7 @@ export default function ProductDetail() {
           <p className="product-desc dim-text">{product.description}</p>
           
           {/* 📊 쇼핑몰 최저가 비교 (신규 추가) */}
-          <div className="comparison-box glass-card">
+          <div id="lowest-price-section" className="comparison-box glass-card">
             <h4 className="label-caps spec-title">📊 실시간 최저가 비교 (오늘 기준)</h4>
             <div className="mall-list">
               {product.malls.map((mall: any, idx: number) => (
@@ -139,8 +139,18 @@ export default function ProductDetail() {
           </div>
 
           <div className="purchase-actions sticky-mobile">
-             <button className="btn-stitch-primary buy-btn pulse-on-click">최저가로 바로 이동</button>
-             <button className="btn-stitch-secondary cart-btn pulse-on-click">내 리스트에 담기</button>
+             <button 
+               className="btn-stitch-primary buy-btn pulse-on-click"
+               onClick={() => document.getElementById('lowest-price-section')?.scrollIntoView({ behavior: 'smooth' })}
+             >
+               최저가로 바로 이동
+             </button>
+             <button 
+               className="btn-stitch-secondary cart-btn pulse-on-click"
+               onClick={() => alert('내 리스트에 추가되었습니다! ✨')}
+             >
+               내 리스트에 담기
+             </button>
           </div>
         </div>
       </main>
