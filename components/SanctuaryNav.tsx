@@ -65,39 +65,38 @@ export default function SanctuaryNav() {
             <div className="icon-wrapper">
               {item.icon}
             </div>
+            <span className="label-caps">{item.label}</span>
           </Link>
         ))}
       </div>
 
       <style jsx>{`
         .sanctuary-nav {
-          position: fixed; bottom: 2rem; left: 0; width: 100%; z-index: 2000;
+          position: fixed; bottom: 3rem; left: 0; width: 100%; z-index: 2000;
           display: flex; justify-content: center; padding: 0 1.5rem;
           pointer-events: none;
         }
         .nav-pill {
           display: flex; justify-content: space-between; align-items: center;
-          width: 100%; max-width: 320px; height: 64px; border-radius: 32px;
+          width: 100%; max-width: 440px; height: 86px; border-radius: 44px;
           border: 1px solid rgba(255,255,255,0.08);
           pointer-events: auto;
           background: var(--glass-bg);
           backdrop-filter: blur(50px) saturate(210%);
-          transition: all 0.8s var(--ease-stitch);
-          padding: 0 1.5rem;
+          transition: background 0.8s var(--ease-stitch), border 0.8s var(--ease-stitch);
+          padding: 0 1rem;
           box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
         .nav-link { 
           display: flex; flex-direction: column; align-items: center; 
-          justify-content: center;
-          width: 48px; height: 48px;
-          opacity: 0.25; transition: 0.5s var(--ease-stitch); 
+          flex: 1; gap: 8px; opacity: 0.15; transition: 0.5s var(--ease-stitch); 
           color: var(--foreground); text-decoration: none;
           position: relative;
         }
-        .nav-link.active { opacity: 1; color: var(--primary); transform: scale(1.1); }
+        .nav-link.active { opacity: 1; color: var(--primary); transform: translateY(-4px); }
         
         .icon-wrapper {
-          width: 24px; height: 24px;
+          width: 28px; height: 28px;
           display: flex; align-items: center; justify-content: center;
         }
         .icon-wrapper :global(svg) {
