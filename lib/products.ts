@@ -2,6 +2,7 @@ export interface Product {
   id: string;
   name: string;
   category: string;
+  subCategory: string; // Added sub-category for better curation
   price: number;
   rating: number;
   reviews: number;
@@ -17,6 +18,7 @@ export const products: Product[] = [
     id: "ld-shoe-01",
     name: "비텐(Bten) 초경량 라인댄스화 L815",
     category: "라인댄스화",
+    subCategory: "초경량화",
     price: 16900,
     rating: 4.9,
     reviews: 852,
@@ -30,6 +32,7 @@ export const products: Product[] = [
     id: "ld-shoe-02",
     name: "라라 디바즈 프리미엄 가죽 라인댄스화",
     category: "라인댄스화",
+    subCategory: "소가죽화",
     price: 34500,
     rating: 4.8,
     reviews: 320,
@@ -43,6 +46,7 @@ export const products: Product[] = [
     id: "ld-skirt-01",
     name: "댄스도매몰 3단 캉캉 라인댄스 스커트",
     category: "의류",
+    subCategory: "스커트",
     price: 15900,
     rating: 4.7,
     reviews: 415,
@@ -56,6 +60,7 @@ export const products: Product[] = [
     id: "ld-pants-01",
     name: "슬림핏 하이웨스트 라인댄스 팬츠",
     category: "의류",
+    subCategory: "팬츠",
     price: 18900,
     rating: 4.8,
     reviews: 520,
@@ -69,6 +74,7 @@ export const products: Product[] = [
     id: "ld-top-01",
     name: "셔링 포인트 라인댄스 연습복 상의",
     category: "의류",
+    subCategory: "연습복/탑",
     price: 12900,
     rating: 4.6,
     reviews: 215,
@@ -82,6 +88,7 @@ export const products: Product[] = [
     id: "ld-bag-01",
     name: "댄서 전용 대용량 숄더백",
     category: "가방/소품",
+    subCategory: "가방",
     price: 24500,
     rating: 4.8,
     reviews: 430,

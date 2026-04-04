@@ -30,7 +30,12 @@ This log tracks the daily batch updates for the Elite Mall product catalog to en
 - **Scale Capability**: Verified system can handle hundreds/thousands of items as per user vision.
 - **Category Expansion**: Increased UI categories to cover **전체, 라인댄스화, 의류, 가방/소품, 보호대/기능성** to handle massive product scaling (1,000+ items).
 - **Filtering Logic**: Optimized the front-end filtering to accurately map to the new category structure.
+- **UI/UX Enhancement**: Implemented a **Dual-Tier Filtering System** (Main Category + Sub-Category). 
+    - Buyers can now filter by "Apparel" and then specifically select "Skirts" or "Pants".
+    - Categories like "Line Dance Shoes" are now further split into "Ultra-lightweight" and "Leather" types.
+- **Data Schema Update**: Added `subCategory` field to the `Product` model to support future large-scale automated sourcing.
 - **Status**: Deployment scheduled.
+
 
 
 
