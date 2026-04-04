@@ -8,6 +8,7 @@ export interface Product {
   img: string;
   description: string;
   purchaseUrl: string;
+  features: string[];
 }
 
 export const products: Product[] = [
@@ -20,7 +21,8 @@ export const products: Product[] = [
     reviews: 1250,
     img: "https://i.011st.com/pd/1/8/8/8/4/2/3/0/2/8/1/8884230281_B.jpg",
     description: "발이 편안한 초경량 메쉬 소재로 장시간 연습에도 쾌적함을 유지합니다.",
-    purchaseUrl: "https://www.11st.co.kr/products/8884230281"
+    purchaseUrl: "https://www.11st.co.kr/products/8884230281",
+    features: ["통기성 메쉬 상단", "고신축성 쿠션 인솔", "내마모성 전용 바닥재"]
   },
   {
     id: "biten-01",
@@ -31,18 +33,20 @@ export const products: Product[] = [
     reviews: 850,
     img: "https://shop-phinf.pstatic.net/20230113_244/16735959950668XyX8_JPEG/74731804240763426_164893118.jpg",
     description: "라인댄스 전문 브랜드 비텐의 베스트셀러. 뛰어난 접지력과 유연성을 자랑합니다.",
-    purchaseUrl: "https://smartstore.naver.com/vitondance/products/36965935389"
+    purchaseUrl: "https://smartstore.naver.com/vitondance/products/36965935389",
+    features: ["라인댄스 최적화 접지", "초경량 설계", "발목 지지 강화"]
   },
   {
     id: "allonge-01",
-    name: "알롱제 가죽 재즈 댄스화",
+    name: "TS스포츠 알롱제 가죽 재즈화",
     category: "댄스화",
     price: 49000,
     rating: 4.7,
     reviews: 620,
     img: "https://i.011st.com/pd/1/6/8/8/0/8/1/1/9/0/2/6880811902_B.jpg",
     description: "부드러운 천연 가죽 소재로 발의 움직임을 섬세하게 잡아주는 전문가용 재즈화입니다.",
-    purchaseUrl: "https://www.11st.kr/products/6880811902"
+    purchaseUrl: "https://www.11st.co.kr/products/6880811902",
+    features: ["천연 가죽 소재", "인체공학적 스플릿 솔", "탁월한 유연성"]
   },
   {
     id: "bag-01",
@@ -53,7 +57,8 @@ export const products: Product[] = [
     reviews: 430,
     img: "https://shop-phinf.pstatic.net/20220930_208/1664506307304M0J14_JPEG/65642182390176378_1935639600.jpg",
     description: "슈즈와 의상을 분리 수납할 수 있는 넉넉한 공간의 댄스 전용 가방입니다.",
-    purchaseUrl: "https://smartstore.naver.com/dancedr/products/7386762391"
+    purchaseUrl: "https://smartstore.naver.com/dancedr/products/7386762391",
+    features: ["독립된 슈즈 수납칸", "방수 안감 처리", "대용량 메인 포켓"]
   },
   {
     id: "skirt-01",
@@ -64,7 +69,8 @@ export const products: Product[] = [
     reviews: 310,
     img: "https://shop-phinf.pstatic.net/20240810_261/17232742918821fK49_JPEG/34394065675459344_1224673629.jpg",
     description: "우아한 라인과 편안한 신축성을 동시에 잡은 전연령대 인기 스커트입니다.",
-    purchaseUrl: "https://smartstore.naver.com/haglinggling/products/10639455325"
+    purchaseUrl: "https://smartstore.naver.com/haglinggling/products/10639455325",
+    features: ["사방 스트레치 원단", "정전기 방지 처리", "우아한 플레어 컷"]
   },
   {
     id: "pants-01",
@@ -75,6 +81,12 @@ export const products: Product[] = [
     reviews: 520,
     img: "https://shop-phinf.pstatic.net/20210325_239/1616656461941z8xH4_JPEG/22712217036980076_103328577.jpg",
     description: "다리가 길어 보이는 하이웨스트 디자인과 뛰어난 복원력의 고기능성 팬츠입니다.",
-    purchaseUrl: "https://smartstore.naver.com/bridgetmarket/products/5472787906"
+    purchaseUrl: "https://smartstore.naver.com/bridgetmarket/products/5472787906",
+    features: ["복부 압박 하이웨스트", "흡습 속건 기능", "실루엣 유지 기술"]
   }
 ];
+
+export const productData: Record<string, Product> = products.reduce((acc, p) => {
+  acc[p.id] = p;
+  return acc;
+}, {} as Record<string, Product>);
