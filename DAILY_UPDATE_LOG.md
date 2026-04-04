@@ -24,7 +24,12 @@ This log tracks the daily batch updates for the Elite Mall product catalog to en
 - **Rules Updated**:
     - Added "Always deploy to GitHub after completion" rule to SHOP_GUIDE_KR.md.
     - Updated focus to 4 major Korean malls (Coupang, Naver, Gmarket, 11st).
-- **Status**: Completed (Brand Unification & Reset)
+## 2026-04-04 Batch Update: Open Brand Sourcing
+- **Strategy Refinement**: Formally adopted the **"Open Brand"** sourcing policy. Any product from the 4 major malls meeting the 4.0+/20+ criteria is a candidate, regardless of brand prestige.
+- **Catalog Expansion**: Added 2 additional verified items (Dance Top, High-Waist Pants).
+- **Scale Capability**: Verified system can handle hundreds/thousands of items as per user vision.
+- **Status**: Deployment scheduled.
+
 
 --- 
 *Next Update Scheduled for: 2026-04-05*

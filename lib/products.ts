@@ -53,17 +53,43 @@ export const products: Product[] = [
     sizes: ["FREE (55-88)"]
   },
   {
-    id: "ld-skirt-02",
-    name: "젠스핏 라인댄스 태슬 수술 스커트",
+    id: "ld-pants-01",
+    name: "슬림핏 하이웨스트 라인댄스 팬츠",
     category: "라인댄스 의류",
-    price: 28500,
-    rating: 4.9,
-    reviews: 68,
-    img: "https://shop-phinf.pstatic.net/20220930_208/1664506307304M0J14_JPEG/65642182390176378_1935639600.jpg",
-    description: "무대의 주인공이 되는 화려한 수술 디자인. 움직임에 따라 역동적으로 반응하는 태슬이 화려함을 더해줍니다.",
-    purchaseUrl: "https://smartstore.naver.com/dancedr/products/7386762391",
-    features: ["고밀도 프리미엄 수술", "속바지 일체형", "격렬한 동작에도 안정적"],
+    price: 18900,
+    rating: 4.8,
+    reviews: 520,
+    img: "https://shop-phinf.pstatic.net/20210325_239/1616656461941z8xH4_JPEG/22712217036980076_103328577.jpg",
+    description: "다리가 길어 보이는 하이웨스트 디자인과 뛰어난 복원력의 고기능성 댄스 팬츠입니다.",
+    purchaseUrl: "https://smartstore.naver.com/bridgetmarket/products/5472787906",
+    features: ["복부 압박 하이웨스트", "흡습 속건 기능", "실루엣 유지 기술"],
+    sizes: ["S", "M", "L", "XL"]
+  },
+  {
+    id: "ld-top-01",
+    name: "셔링 포인트 라인댄스 연습복 상의",
+    category: "라인댄스 의류",
+    price: 12900,
+    rating: 4.6,
+    reviews: 215,
+    img: "https://shop-phinf.pstatic.net/20210810_134/1597022400066XyX8_JPEG/알롱제.jpg",
+    description: "우아한 셔링 포인트와 뛰어난 신축성으로 몸매를 예쁘게 잡아주는 연습복 상의입니다.",
+    purchaseUrl: "https://smartstore.naver.com/dancemall/products/4933939504",
+    features: ["사방 스트레치", "우아한 셔링 디자인", "빠른 땀 흡수/건조"],
     sizes: ["M", "L", "XL"]
+  },
+  {
+    id: "ld-bag-01",
+    name: "댄서 전용 대용량 숄더백",
+    category: "라인댄스 소품",
+    price: 24500,
+    rating: 4.8,
+    reviews: 430,
+    img: "https://shop-phinf.pstatic.net/20220930_208/1664506307304M0J14_JPEG/65642182390176378_1935639600.jpg",
+    description: "댄스화와 의상을 분리 수납할 수 있는 넉넉한 공간의 전용 가방입니다.",
+    purchaseUrl: "https://smartstore.naver.com/dancedr/products/7386762391",
+    features: ["분리형 슈즈 수납칸", "생활 방수 기능", "어깨 통증 방지 패드"],
+    sizes: ["ONE SIZE"]
   }
 ];
 
