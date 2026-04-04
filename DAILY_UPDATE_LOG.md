@@ -24,6 +24,17 @@ This log tracks the daily batch updates for the Elite Mall product catalog to en
 - **Rules Updated**:
     - Added "Always deploy to GitHub after completion" rule to SHOP_GUIDE_KR.md.
     - Updated focus to 4 major Korean malls (Coupang, Naver, Gmarket, 11st).
+### [2026-04-04] - Batch 2 & 3: Catalog Expansion (51+ Items)
+- **Status**: Completed
+- **Changes**:
+  - Sourced 51+ high-integrity products from specialized stores: **TS스포츠**, **알롱제**, **엘레바**, **댄스몰**.
+  - All items meet strict criteria: **Rating ≥ 4.0** and **Reviews ≥ 20**.
+  - Expanded categories: 
+    - **라인댄스화**: Added more sneakers, jazz shoes, and heels.
+    - **의류**: Added leggings, joggers, tops, and sets.
+    - **보호대/기능성**: Added joint protectors and foot care items.
+  - Re-mapped sub-categories for improved filtering usability.
+- **Goal Check**: High-volume transition initiated. Moving from "curated sample" to "full-service catalog".
 ## 2026-04-04 Batch Update: Open Brand Sourcing
 - **Strategy Refinement**: Formally adopted the **"Open Brand"** sourcing policy. Any product from the 4 major malls meeting the 4.0+/20+ criteria is a candidate, regardless of brand prestige.
 - **Catalog Expansion**: Added 2 additional verified items (Dance Top, High-Waist Pants).
