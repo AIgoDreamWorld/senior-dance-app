@@ -71,13 +71,13 @@ export default function ProductDetail() {
         <div className="product-details editorial-meta">
           <div className="brand-breadcrumb label-caps accent-color">OFFICIAL STORE / {product.category}</div>
           <h1 className="display-text product-title gold-gradient-text">{product.name}</h1>
-          <div className="price-tag display-text">₩{product.price} <span className="starting-label">검증된 최저가 결제</span></div>
+          <div className="price-tag display-text">₩{product.price} <span className="starting-label">공식 스토어 최저가 결제</span></div>
           
           <p className="product-desc dim-text">{product.description}</p>
           
           {/* ✅ 직행 결제 섹션 */}
           <div className="glass-card direct-access-card" style={{ padding: '2rem', marginBottom: '2rem', border: '1px solid rgba(212,175,55,0.2)' }}>
-            <div className="label-caps" style={{ color: 'var(--primary)', marginBottom: '1rem', fontSize: '0.7rem' }}>🔒 안전한 직영/메이저 쇼핑몰 결제</div>
+            <div className="label-caps" style={{ color: 'var(--primary)', marginBottom: '1rem', fontSize: '0.7rem' }}>🔒 안전한 네이버 스마트스토어 공식 결제</div>
             <button 
               className="btn-stitch-primary buy-btn pulse-on-click"
               style={{ width: '100%', height: '80px', fontSize: '1.1rem', fontWeight: 800, letterSpacing: '0.05em' }}
