@@ -19,21 +19,21 @@ export const products: Product[] = [
     price: 36500,
     rating: 4.8,
     reviews: 1250,
-    img: "https://i.011st.com/pd/1/8/8/8/4/2/3/0/2/8/1/8884230281_B.jpg",
+    img: "https://shopping-phinf.pstatic.net/main_4813907/48139070868.20240713095315.jpg",
     description: "발이 편안한 초경량 메쉬 소재로 장시간 연습에도 쾌적함을 유지합니다.",
-    purchaseUrl: "https://www.11st.co.kr/products/8884230281",
+    purchaseUrl: "https://smartstore.naver.com/chunmistore/products/10267046546",
     features: ["통기성 메쉬 상단", "고신축성 쿠션 인솔", "내마모성 전용 바닥재"]
   },
   {
     id: "biten-01",
-    name: "비텐 라인댄스화",
+    name: "비텐 라인댄스화 L815",
     category: "댄스화",
     price: 42000,
     rating: 4.9,
     reviews: 850,
-    img: "https://shop-phinf.pstatic.net/20230113_244/16735959950668XyX8_JPEG/74731804240763426_164893118.jpg",
+    img: "https://shopping-phinf.pstatic.net/main_3696593/36965935389.20250731012742.jpg",
     description: "라인댄스 전문 브랜드 비텐의 베스트셀러. 뛰어난 접지력과 유연성을 자랑합니다.",
-    purchaseUrl: "https://smartstore.naver.com/vitondance/products/36965935389",
+    purchaseUrl: "https://smartstore.naver.com/bten/products/6933291000",
     features: ["라인댄스 최적화 접지", "초경량 설계", "발목 지지 강화"]
   },
   {
@@ -43,9 +43,9 @@ export const products: Product[] = [
     price: 49000,
     rating: 4.7,
     reviews: 620,
-    img: "https://i.011st.com/pd/1/6/8/8/0/8/1/1/9/0/2/6880811902_B.jpg",
+    img: "https://shopping-phinf.pstatic.net/main_5798352/57983522598.20260226021659.jpg",
     description: "부드러운 천연 가죽 소재로 발의 움직임을 섬세하게 잡아주는 전문가용 재즈화입니다.",
-    purchaseUrl: "https://www.11st.co.kr/products/6880811902",
+    purchaseUrl: "https://smartstore.naver.com/dancemall/products/4933939504",
     features: ["천연 가죽 소재", "인체공학적 스플릿 솔", "탁월한 유연성"]
   },
   {
