@@ -1,162 +1,72 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;700;800&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+KR:wght@400;700&display=swap');
+/* Cyber-Zen Editorial v2.0 System */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Manrope:wght@300;400;500;700&display=swap');
 
 :root {
-  /* Stitch Color Protocol: Cyber-Zen Editorial v2.0 - Premium Obsidian */
-  --background: #121316;    /* Base Layer */
-  --surface: #121316;       /* Main Viewport */
-  --foreground: #e3e2e6;    /* on_surface: High-Fidelity Paper */
-  --primary: #f2ca50;       /* Signature Active Gold */
-  --primary-container: #d4af37; /* Burnished Gold for Text/Containers */
+  --background: #121316; /* Deep Obsidian */
+  --surface: #121316;
+  --surface-low: #1b1b1f; /* Surface for sections */
+  --surface-high: #292a2d; /* Surface for cards */
+  --surface-highest: #343538; /* Active states */
+  
+  --primary: #f2ca50; /* Burnished Gold */
+  --primary-container: #d4af37; /* Luxe Gold */
   --on-primary: #3c2f00;
   
-  /* Tonal Surface Hierarchy (No-Line Rule) */
-  --surface-container-lowest: #0d0e11;
-  --surface-container-low: #1b1b1f;    /* Secondary Sections */
-  --surface-container: #1f1f23;
-  --surface-container-high: #292a2d;   /* Elevated Cards */
-  --surface-container-highest: #343538; /* Active/Interactive Objects */
-  --surface-variant: #343538;          /* Glass Base */
+  --on-surface: #e3e2e6;
+  --on-surface-variant: #d0c5af;
+  --outline-variant: rgba(153, 144, 124, 0.15); /* Reflective Ghost Border */
   
-  --outline-variant: rgba(77, 70, 53, 0.15); /* Ghost Border Fallback */
-  --on-surface-muted: #d0c5af;         /* on_surface_variant */
-  --on-surface-dim: #99907c;           /* outline */
-
-  /* Glassmorphism Standard */
-  --glass-bg: rgba(52, 53, 56, 0.4);   /* surface-variant 40% */
-  --glass-blur: blur(20px);
-  
-  /* Spacing & Typography */
-  --spacing-20: 5rem;
-  --spacing-24: 6rem;
-  --font-display: 'Noto Serif', serif;
-  --font-body: 'Manrope', sans-serif;
-  
-  /* Motion */
-  --ease-stitch: cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-slow: 0.8s var(--ease-stitch);
-  --transition-fast: 0.4s var(--ease-stitch);
+  --font-serif: 'Noto Serif KR', serif;
+  --font-sans: 'Manrope', sans-serif;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
-  -webkit-tap-highlight-color: transparent;
-}
-
-html, body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-body);
-  font-size: 16px;
-  scroll-behavior: smooth;
-  height: 100%;
-  overflow-x: hidden;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--on-surface);
+  font-family: var(--font-sans);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* --- THE NO-LINE STITCH UTILITIES --- */
-
-.tonal-lift-low {
-  background: var(--surface-container-low);
-  border: none !important;
-}
-
-.tonal-lift-high {
-  background: var(--surface-container-high);
-  border: none !important;
-}
-
-/* Glassmorphism v2.0 */
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--outline-variant); /* Ghost reflection */
-}
-
-/* Editorial Typography */
-.display-text {
-  font-family: var(--font-display);
-  color: var(--foreground);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-}
-
-.label-caps {
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-  color: var(--primary-container);
-}
-
-.gold-gradient-text {
-  background: linear-gradient(135deg, #f2ca50 0%, #d4af37 50%, #b8860b 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Buttons: Kinetic Editorial */
-.btn-stitch-primary {
-  padding: 1rem 2.5rem;
-  border-radius: 999px; /* ROUND_FULL */
+/* Typography Editorial Scale */
+h1, h2, h3 {
+  font-family: var(--font-serif);
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border: none;
-  background: var(--primary-container);
-  color: var(--on-primary);
-  transition: all 0.4s var(--ease-stitch);
-  cursor: pointer;
+  letter-spacing: -0.02em;
 }
 
-.btn-stitch-primary:hover {
-  background: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
+.display-lg { font-size: clamp(3rem, 8vw, 6rem); line-height: 1.1; }
+.display-md { font-size: clamp(2rem, 5vw, 4rem); line-height: 1.2; }
+.title-lg { font-size: 1.8rem; letter-spacing: 0.05em; text-transform: uppercase; }
 
-.btn-stitch-secondary {
-  padding: 1rem 2.5rem;
-  border-radius: 999px;
-  background: transparent;
-  color: var(--foreground);
+/* Glassmorphism Utility */
+.glass-pill {
+  background: rgba(52, 53, 56, 0.4);
+  backdrop-filter: blur(32px);
+  border-radius: 500px;
   border: 1px solid var(--outline-variant);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 700;
-  backdrop-filter: blur(10px);
-  transition: all 0.4s var(--ease-stitch);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-.btn-stitch-secondary:hover {
-  background: var(--surface-container-highest);
-  border-color: var(--on-surface-muted);
-}
+/* Layout Guidelines */
+.section-gap { padding: clamp(4rem, 10vw, 120px) 0; }
+.container-editorial { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
 
-/* Custom Scroll */
-.scroll-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* No-Line Cards */
+.tonal-card {
+  background: var(--surface-high);
+  border-radius: 2rem;
+  transition: transform 0.4s ease, background 0.4s ease;
+  border: none !important;
 }
-.scroll-hide::-webkit-scrollbar {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  html { font-size: 14px; }
-}
-
-.container {
-  width: 90%;
-  max-width: 1400px;
-  margin: 0 auto;
+.tonal-card:hover {
+  background: var(--surface-highest);
+  transform: translateY(-8px);
 }
