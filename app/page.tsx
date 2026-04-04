@@ -14,12 +14,12 @@ export default function Home() {
     setMounted(true);
   }, []);
 
-  const categories = ['인기 상품', '신발', '용품', '의류/가방'];
+  const categories = ['전체', '라인댄스화', '의류', '가방/소품', '보호대/기능성'];
 
   const filteredProducts = products.filter(p => {
-    if (activeCategory === '인기 상품') return true;
+    if (activeCategory === '전체') return true;
     return p.category === activeCategory;
-  }).slice(0, 8);
+  });
 
   const heroProduct = products.find(p => p.id === 'essential-01') || products[0];
 

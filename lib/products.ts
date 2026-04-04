@@ -42,7 +42,7 @@ export const products: Product[] = [
   {
     id: "ld-skirt-01",
     name: "댄스도매몰 3단 캉캉 라인댄스 스커트",
-    category: "라인댄스 의류",
+    category: "의류",
     price: 15900,
     rating: 4.7,
     reviews: 415,
@@ -55,7 +55,7 @@ export const products: Product[] = [
   {
     id: "ld-pants-01",
     name: "슬림핏 하이웨스트 라인댄스 팬츠",
-    category: "라인댄스 의류",
+    category: "의류",
     price: 18900,
     rating: 4.8,
     reviews: 520,
@@ -68,7 +68,7 @@ export const products: Product[] = [
   {
     id: "ld-top-01",
     name: "셔링 포인트 라인댄스 연습복 상의",
-    category: "라인댄스 의류",
+    category: "의류",
     price: 12900,
     rating: 4.6,
     reviews: 215,
@@ -81,7 +81,7 @@ export const products: Product[] = [
   {
     id: "ld-bag-01",
     name: "댄서 전용 대용량 숄더백",
-    category: "라인댄스 소품",
+    category: "가방/소품",
     price: 24500,
     rating: 4.8,
     reviews: 430,
