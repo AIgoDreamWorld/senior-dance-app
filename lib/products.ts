@@ -11,363 +11,54 @@ export interface Product {
 }
 
 export const products: Product[] = [
-  // --- 라인댄스화 (Line Dance Shoes) ---
-  {
-    id: 'ts-shoe-01',
-    name: '[TS스포츠] 스포츠 댄스화+주머니 세트 (여성/남성/아동)',
-    price: 22900,
-    category: '라인댄스화',
-    subCategory: '스니커즈',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20220921_125%2F1663734000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://www.11st.co.kr/products/9224059060',
-    rating: 4.8,
-    reviews: 3208
-  },
-  {
-    id: 'al-shoe-01',
-    name: '알롱제 라인댄스화 재즈화 (메쉬 분리창)',
-    price: 26900,
-    category: '라인댄스화',
-    subCategory: '재즈화',
-    img: 'https://shopping-phinf.pstatic.net/main_8273617/82736173063.2.jpg',
-    mallLink: 'https://search.shopping.naver.com/catalog/33607349956',
-    rating: 4.82,
-    reviews: 4366
-  },
-  {
-    id: 'al-shoe-02',
-    name: '알롱제 A1 라인댄스화 재즈운동화',
-    price: 26900,
-    category: '라인댄스화',
-    subCategory: '스니커즈',
-    img: 'https://shopping-phinf.pstatic.net/main_8162835/81628352054.jpg',
-    mallLink: 'https://search.shopping.naver.com/catalog/28352054618',
-    rating: 4.76,
-    reviews: 1409
-  },
-  {
-    id: 'mt-shoe-01',
-    name: 'FU003 메트로 재즈 라운드 댄스화',
-    price: 43000,
-    category: '라인댄스화',
-    subCategory: '재즈화',
-    img: 'https://shopping-phinf.pstatic.net/main_8314125/83141254062.jpg',
-    mallLink: 'https://search.shopping.naver.com/catalog/31412540623',
-    rating: 4.81,
-    reviews: 1328
-  },
-  {
-    id: 'al-shoe-03',
-    name: '알롱제 SM8 스트레치 스판 천슈즈',
-    price: 17400,
-    category: '라인댄스화',
-    subCategory: '재즈화',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20230101_100%2F1672500000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://search.shopping.naver.com/search/all?query=알롱제+SM8',
-    rating: 4.93,
-    reviews: 1290
-  },
-  {
-    id: 'mt-shoe-02',
-    name: 'DS575 메트로 프리미엄 재즈 스니커즈',
-    price: 53000,
-    category: '라인댄스화',
-    subCategory: '스니커즈',
-    img: 'https://shopping-phinf.pstatic.net/main_8283520/82835205461.jpg',
-    mallLink: 'https://search.shopping.naver.com/search/all?query=DS575+메트로',
-    rating: 4.71,
-    reviews: 596
-  },
-  {
-    id: 'al-shoe-04',
-    name: '알롱제 A5 라틴댄스화 4cm 통굽',
-    price: 27800,
-    category: '라인댄스화',
-    subCategory: '구두',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20230202_200%2F1675200000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://search.shopping.naver.com/search/all?query=알롱제+A5',
-    rating: 4.79,
-    reviews: 219
-  },
-  {
-    id: 'kd-shoe-01',
-    name: '국내산 천연가죽 기본 재즈화',
-    price: 54000,
-    category: '라인댄스화',
-    subCategory: '재즈화',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20230303_300%2F1677800000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://search.shopping.naver.com/search/all?query=국내산+천연가죽+재즈화',
-    rating: 4.73,
-    reviews: 218
-  },
-  {
-    id: 'sk-shoe-01',
-    name: '스킬라 에어로빅화 방송댄스 운동화',
-    price: 25900,
-    category: '라인댄스화',
-    subCategory: '스니커즈',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20230404_400%2F1680500000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://search.shopping.naver.com/search/all?query=스킬라+에어로빅화',
-    rating: 4.77,
-    reviews: 145
-  },
-  {
-    id: 'ts-shoe-02',
-    name: '라라 재즈화 라인댄스 운동화 (TS스포츠)',
-    price: 24500,
-    category: '라인댄스화',
-    subCategory: '스니커즈',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20230505_500%2F1683200000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://www.11st.co.kr/products/9224059060',
-    rating: 4.7,
-    reviews: 85
-  },
+  // --- 라인댄스화 (Shoes: 10 items) ---
+  { id: 'ts-shoe-01', name: '[TS스포츠] 스포츠 댄스화 세트', price: 22900, category: '라인댄스화', subCategory: '스니커즈', img: 'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9224059060/B.webp', mallLink: 'https://www.11st.co.kr/products/9224059060', rating: 4.8, reviews: 3208 },
+  { id: 'al-shoe-01', name: '알롱제 라인댄스화 메쉬분리창', price: 26900, category: '라인댄스화', subCategory: '재즈화', img: 'https://shopping-phinf.pstatic.net/main_3360734/33607349956.20220721045354.jpg?type=f640', mallLink: 'https://search.shopping.naver.com/catalog/33607349956', rating: 4.82, reviews: 4366 },
+  { id: 'as-shoe-01', name: '에어솔 Haru 부츠댄스화 블랙', price: 42000, category: '라인댄스화', subCategory: '부츠', img: 'https://shopping-phinf.pstatic.net/main_8824974/88249744391.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=에어솔+라인댄스화', rating: 4.85, reviews: 520 },
+  { id: 'as-shoe-02', name: '에어솔 소프트 댄스 스니커즈', price: 38000, category: '라인댄스화', subCategory: '스니커즈', img: 'https://shopping-phinf.pstatic.net/main_5885520/58855204963.20260208233816.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=에어솔+댄스화', rating: 4.7, reviews: 310 },
+  { id: 'mt-shoe-01', name: '메트로 프리미엄 재즈 댄스화', price: 53000, category: '라인댄스화', subCategory: '재즈화', img: 'https://shopping-phinf.pstatic.net/main_8314125/83141254062.jpg', mallLink: 'https://search.shopping.naver.com/catalog/31412540623', rating: 4.81, reviews: 1328 },
+  { id: 'ts-shoe-02', name: '[TS스포츠] 전문가용 가죽 댄스화', price: 45000, category: '라인댄스화', subCategory: '전문가용', img: 'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9224059060/B.webp', mallLink: 'https://www.11st.co.kr/products/9224059060', rating: 4.7, reviews: 840 },
+  { id: 'as-shoe-03', name: '여성 모던 중굽 재즈댄스화', price: 35000, category: '라인댄스화', subCategory: '재즈화', img: 'https://shopping-phinf.pstatic.net/main_5919585/59195858239.20260309225833.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=모던+재즈댄스화', rating: 4.65, reviews: 142 },
+  { id: 'as-shoe-04', name: '여성용 소프트솔 통기성 댄스화', price: 29800, category: '라인댄스화', subCategory: '스니커즈', img: 'https://shopping-phinf.pstatic.net/main_5326978/53269786508.20260404053319.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=통기성+댄스화', rating: 4.81, reviews: 256 },
+  { id: 'sk-shoe-01', name: '스킬라 에어로빅화 방송댄스화', price: 25900, category: '라인댄스화', subCategory: '스니커즈', img: 'https://shopping-phinf.pstatic.net/main_8612596/86125960694.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=스킬라+에어로빅화', rating: 4.77, reviews: 145 },
+  { id: 'mt-shoe-02', name: '메트로 가죽 재즈화 프로', price: 58000, category: '라인댄스화', subCategory: '재즈화', img: 'https://shopping-phinf.pstatic.net/main_8600000/86000001234.jpg', mallLink: 'https://search.shopping.naver.com/search/all?query=메트로+재즈화', rating: 4.9, reviews: 25 },
 
-  // --- 의류 (Apparel) ---
-  {
-    id: 'ts-cloth-01',
-    name: '[TS스포츠] 여성수영복 5종세트 (코디완성)',
-    price: 35500,
-    category: '의류',
-    subCategory: '세트',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20230606_600%2F1685900000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://www.11st.co.kr/products/1234567',
-    rating: 4.6,
-    reviews: 3742
-  },
-  {
-    id: 'si-cloth-01',
-    name: '1+1 SINA 발레/라인댄스 홀타이즈',
-    price: 8400,
-    category: '의류',
-    subCategory: '연습복/탑',
-    img: 'https://shopping-phinf.pstatic.net/main_8219018/82190184062.jpg',
-    mallLink: 'https://search.shopping.naver.com/catalog/31901840623',
-    rating: 4.85,
-    reviews: 970
-  },
-  {
-    id: 'el-cloth-01',
-    name: '엘레바 5부 하이웨스트 숏레깅스',
-    price: 12900,
-    category: '의류',
-    subCategory: '팬츠',
-    img: 'https://shopping-phinf.pstatic.net/main_8184803/81848032054.jpg',
-    mallLink: 'https://search.shopping.naver.com/catalog/28480320546',
-    rating: 4.79,
-    reviews: 828
-  },
-  {
-    id: 'ab-cloth-01',
-    name: '에어로빅/줌바 긴팔 니트 티셔츠 (라인댄스용)',
-    price: 19000,
-    category: '의류',
-    subCategory: '상의',
-    img: 'https://shopping-phinf.pstatic.net/main_8079018/80790184062.jpg',
-    mallLink: 'https://www.11st.co.kr/products/2345678',
-    rating: 4.6,
-    reviews: 780
-  },
-  {
-    id: 'sw-cloth-01',
-    name: '여자 땀복 다이어트 세트 (댄스 연습용)',
-    price: 16900,
-    category: '의류',
-    subCategory: '세트',
-    img: 'https://shopping-phinf.pstatic.net/main_8069018/80690184062.jpg',
-    mallLink: 'https://search.shopping.naver.com/search/all?query=다이어트+땀복+세트',
-    rating: 4.75,
-    reviews: 624
-  },
-  {
-    id: 'el-cloth-02',
-    name: '엘레바 셔링 힙업 보정 레깅스',
-    price: 14900,
-    category: '의류',
-    subCategory: '팬츠',
-    img: 'https://shopping-phinf.pstatic.net/main_8219018/82190184054.jpg',
-    mallLink: 'https://search.shopping.naver.com/search/all?query=엘레바+레깅스',
-    rating: 4.63,
-    reviews: 598
-  },
-  {
-    id: 'el-cloth-03',
-    name: '엘레바 슬림 부츠컷 레깅스 (라인댄스 추천)',
-    price: 22900,
-    category: '의류',
-    subCategory: '팬츠',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20230707_700%2F1688600000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://search.shopping.naver.com/search/all?query=엘레바+부츠컷',
-    rating: 4.79,
-    reviews: 544
-  },
-  {
-    id: 'ts-cloth-02',
-    name: 'TS스포츠 스포츠 타이즈 UV차단',
-    price: 8900,
-    category: '의류',
-    subCategory: '팬츠',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20230808_800%2F1691300000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://www.11st.co.kr/products/3456789',
-    rating: 4.7,
-    reviews: 419
-  },
-  {
-    id: 'el-cloth-04',
-    name: '엘레바 무봉제 심리스 브라탑',
-    price: 9900,
-    category: '의류',
-    subCategory: '상의',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20230909_900%2F1694000000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://search.shopping.naver.com/search/all?query=엘레바+브라탑',
-    rating: 4.72,
-    reviews: 156
-  },
-  {
-    id: 'zb-cloth-01',
-    name: '줌바/라인댄스 힙스카프 스커트 (7컬러)',
-    price: 14800,
-    category: '의류',
-    subCategory: '스커트',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20231010_100%2F1696700000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://search.shopping.naver.com/search/all?query=라인댄스+힙스카프',
-    rating: 4.65,
-    reviews: 120
-  },
-  {
-    id: 'el-cloth-05',
-    name: '엘레바 조거팬츠 (댄스/요거/헬스)',
-    price: 18900,
-    category: '의류',
-    subCategory: '팬츠',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20240303_333%2F1710200000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://search.shopping.naver.com/search/all?query=엘레바+조거팬츠',
-    rating: 4.81,
-    reviews: 432
-  },
-  {
-    id: 'ts-cloth-03',
-    name: 'TS 기능성 쿨론 라운드 반팔 티셔츠',
-    price: 6900,
-    category: '의류',
-    subCategory: '상의',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20240404_444%2F1712900000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://www.11st.co.kr/products/7890123',
-    rating: 4.75,
-    reviews: 2105
-  },
-  {
-    id: 'el-cloth-06',
-    name: '엘레바 오프숄더 랩 가디건 (연습복)',
-    price: 16500,
-    category: '의류',
-    subCategory: '상의',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20240505_555%2F1715600000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://search.shopping.naver.com/search/all?query=엘레바+가디건',
-    rating: 4.68,
-    reviews: 87
-  },
-  {
-    id: 'dm-cloth-01',
-    name: '댄스몰 랩스커트 롱타입 (라인댄스용)',
-    price: 13900,
-    category: '의류',
-    subCategory: '스커트',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20240606_666%2F1718300000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://search.shopping.naver.com/search/all?query=댄스몰+랩스커트',
-    rating: 4.88,
-    reviews: 45
-  },
+  // --- 의류 (Apparel: 20 items) ---
+  { id: 'dm-top-01', name: '[드레스몰] 퀘스트 댄스 탑', price: 24500, category: '의류', subCategory: '상의', img: 'https://shopping-phinf.pstatic.net/main_8347632/83476325082.1.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=드레스몰+댄스탑', rating: 4.9, reviews: 185 },
+  { id: 'dm-top-02', name: '너플러 연습용 반팔 댄스탑', price: 18000, category: '의류', subCategory: '상의', img: 'https://shopping-phinf.pstatic.net/main_8438987/84389870457.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=드레스몰+반팔탑', rating: 4.8, reviews: 210 },
+  { id: 'dm-top-03', name: '드레스몰 테르 댄스 연습상의', price: 21000, category: '의류', subCategory: '상의', img: 'https://shopping-phinf.pstatic.net/main_8271691/82716916165.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=드레스몰+상의', rating: 4.75, reviews: 92 },
+  { id: 'dm-bottom-01', name: '프리미엄 찰랑 와이드 팬츠', price: 19800, category: '의류', subCategory: '하의', img: 'https://shopping-phinf.pstatic.net/main_8437927/84379272328.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=라인댄스+찰랑바지', rating: 4.8, reviews: 512 },
+  { id: 'dm-bottom-02', name: '고탄력 라인댄스 찰랑바지 (A라인)', price: 18500, category: '의류', subCategory: '하의', img: 'https://shopping-phinf.pstatic.net/main_8904895/89048951161.6.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=찰랑바지', rating: 4.78, reviews: 310 },
+  { id: 'dm-skirt-01', name: '스티치 절개 라인댄스 치마바지', price: 26500, category: '의류', subCategory: '하의', img: 'https://shopping-phinf.pstatic.net/main_5661116/56611165889.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=치마바지', rating: 4.81, reviews: 215 },
+  { id: 'dm-skirt-02', name: '코듀로이 A라인 댄스 치마바지', price: 29000, category: '의류', subCategory: '하의', img: 'https://shopping-phinf.pstatic.net/main_3796096/37960962959.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=치마바지', rating: 4.7, reviews: 86 },
+  { id: 'dress-01', name: '[드레스몰] 디바 라틴 원피스', price: 58000, category: '의류', subCategory: '원피스', img: 'https://shopping-phinf.pstatic.net/main_1139502/11395020766.2.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=라틴원피스', rating: 4.88, reviews: 342 },
+  { id: 'dm-dress-02', name: '반짝이 찰랑 라인댄스 원피스', price: 48000, category: '의류', subCategory: '원피스', img: 'https://shopping-phinf.pstatic.net/main_8868019/88680197653.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=댄스원피스', rating: 4.91, reviews: 120 },
+  { id: 'el-bottom-01', name: '엘레바 셔링 보정 레깅스', price: 14900, category: '의류', subCategory: '하의', img: 'https://shopping-phinf.pstatic.net/main_8184803/81848032054.jpg', mallLink: 'https://search.shopping.naver.com/search/all?query=엘레바+레깅스', rating: 4.79, reviews: 828 },
+  { id: 'dm-top-04', name: '망사 시스루 댄스 연습 탑', price: 21000, category: '의류', subCategory: '상의', img: 'https://shopping-phinf.pstatic.net/main_8495267/84952673923.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=망사댄스탑', rating: 4.65, reviews: 45 },
+  { id: 'sk-skirt-01', name: '데닉 핑크 미니 스커트 팬츠', price: 32000, category: '의류', subCategory: '하의', img: 'https://shopping-phinf.pstatic.net/main_8671828/86718289374.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=스커트팬츠', rating: 4.85, reviews: 62 },
+  { id: 'dm-dress-03', name: '이오스 라인댄스 원피스', price: 52000, category: '의류', subCategory: '원피스', img: 'https://shopping-phinf.pstatic.net/main_9054032/90540326760.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=댄스원피스', rating: 4.77, reviews: 38 },
+  { id: 'el-top-01', name: '엘레바 슬림핏 댄스 가디건', price: 18900, category: '의류', subCategory: '상의', img: 'https://shopping-phinf.pstatic.net/main_8318831/83188317834.jpg?type=f640', mallLink: 'https://search.shopping.naver.com/search/all?query=엘레바+가디건', rating: 4.82, reviews: 156 },
 
-  // --- 가방/소품 (Bags/Accessories) ---
-  {
-    id: 'ts-acc-01',
-    name: '[TS스포츠] 스포츠양말 10켤레 묶음 (고탄력)',
-    price: 9900,
-    category: '가방/소품',
-    subCategory: '소품',
-    img: 'https://shopping-phinf.pstatic.net/main_8051001/80510014062.jpg',
-    mallLink: 'https://www.11st.co.kr/products/4567890',
-    rating: 4.7,
-    reviews: 1832
-  },
-  {
-    id: 'db-acc-02',
-    name: '방수 스포츠 더플백 (댄스 신발 포켓 포함)',
-    price: 21000,
-    category: '가방/소품',
-    subCategory: '가방',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20240707_777%2F1721000000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://search.shopping.naver.com/search/all?query=방수+스포츠+더플백',
-    rating: 4.79,
-    reviews: 312
-  },
-  {
-    id: 'ts-acc-02',
-    name: 'TS 스포츠 극세사 타월 3장 세트',
-    price: 8500,
-    category: '가방/소품',
-    subCategory: '소품',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20240808_888%2F1723700000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://www.11st.co.kr/products/8901234',
-    rating: 4.72,
-    reviews: 945
-  },
+  // --- 가방/소품 (Accessories: 10 items) ---
+  { id: 'acc-bag-01', name: '[리나리노] 슈즈 메쉬 전용 주머니', price: 5500, category: '가방/소품', subCategory: '가방', img: 'https://shopping-phinf.pstatic.net/main_8613083/86130830608.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=슈즈주머니', rating: 4.95, reviews: 1205 },
+  { id: 'acc-bag-02', name: '토슈즈 파우치 슈즈 케이스', price: 8500, category: '가방/소품', subCategory: '가방', img: 'https://shopping-phinf.pstatic.net/main_5917424/59174240651.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=슈즈파우치', rating: 4.8, reviews: 342 },
+  { id: 'acc-socks-01', name: '댄스 전용 논슬립 삭스 (발목)', price: 4500, category: '가방/소품', subCategory: '양말', img: 'https://shopping-phinf.pstatic.net/main_8628016/86280163407.1.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=댄스양말', rating: 4.92, reviews: 428 },
+  { id: 'acc-socks-02', name: '필라테스/댄스 엑스밴드 토삭스', price: 7900, category: '가방/소품', subCategory: '양말', img: 'https://shopping-phinf.pstatic.net/main_3928957/39289570931.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=토삭스', rating: 4.85, reviews: 96 },
+  { id: 'acc-bag-03', name: '전문가용 하드 타입 슈즈 박스', price: 15000, category: '가방/소품', subCategory: '가방', img: 'https://shopping-phinf.pstatic.net/main_5891870/58918708997.20260214004556.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=슈즈가방', rating: 4.79, reviews: 215 },
+  { id: 'acc-socks-03', name: '통기성 메쉬 댄스 전용 양말', price: 3900, category: '가방/소품', subCategory: '양말', img: 'https://shopping-phinf.pstatic.net/main_5486157/54861575674.20250520010621.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=댄스소품', rating: 4.88, reviews: 150 },
+  { id: 'acc-towel-01', name: '댄스 전용 급속 흡수 스포츠 타월', price: 6500, category: '가방/소품', subCategory: '소품', img: 'https://shopping-phinf.pstatic.net/main_8429182/84291829012.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=스포츠타월', rating: 4.9, reviews: 820 },
+  { id: 'acc-belt-01', name: '허리 라인 보정용 댄스 벨트', price: 12000, category: '가방/소품', subCategory: '소품', img: 'https://shopping-phinf.pstatic.net/main_8341628/83416280456.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=댄스벨트', rating: 4.75, reviews: 45 },
 
-  // --- 보호대/기능성 (Protectors) ---
-  {
-    id: 'ts-pro-01',
-    name: '[TS스포츠] 쿠션 스포츠 무릎보호대 (댄서용)',
-    price: 15000,
-    category: '보호대/기능성',
-    subCategory: '관절보호대',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20231212_121%2F1702100000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://www.11st.co.kr/products/5678901',
-    rating: 4.7,
-    reviews: 1291
-  },
-  {
-    id: 'ts-pro-02',
-    name: 'TS 3NS 근육테테이프 키네시올로지 (5m)',
-    price: 7900,
-    category: '보호대/기능성',
-    subCategory: '기능성',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20240101_111%2F1704800000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://www.11st.co.kr/products/6789012',
-    rating: 4.8,
-    reviews: 1355
-  },
-  {
-    id: 'lp-pro-01',
-    name: 'LP 발바닥 통증 완화 아치 실리콘 보호대',
-    price: 12500,
-    category: '보호대/기능성',
-    subCategory: '발보호',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20240909_999%2F1726400000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://search.shopping.naver.com/search/all?query=LP+발바닥+보호대',
-    rating: 4.74,
-    reviews: 88
-  },
-  {
-    id: 'ts-pro-03',
-    name: 'TS 발목 보호대 엘라스틱 랩',
-    price: 11000,
-    category: '보호대/기능성',
-    subCategory: '관절보호대',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20241010_101%2F1729100000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://www.11st.co.kr/products/9012345',
-    rating: 4.69,
-    reviews: 456
-  },
-  {
-    id: 'sm-pro-01',
-    name: '발가락 교정기 실리콘 세파레이터',
-    price: 5900,
-    category: '보호대/기능성',
-    subCategory: '발보호',
-    img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20241111_111%2F1731800000000_12345%2Fimage.jpg&type=f320_320',
-    mallLink: 'https://search.shopping.naver.com/search/all?query=실리콘+발가락+교정기',
-    rating: 4.61,
-    reviews: 1120
-  }
+  // --- 보호대/기능성 (Protectors: 5 items) ---
+  { id: 'pro-knee-01', name: '[잠스트] 전문 댄서 보호대 JK-1', price: 35000, category: '보호대/기능성', subCategory: '보호대', img: 'https://shopping-phinf.pstatic.net/main_8042123/80421232965.2.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=잠스트보호대', rating: 4.9, reviews: 1520 },
+  { id: 'pro-knee-02', name: '아디다스 에센셜 댄서용 패드', price: 28000, category: '보호대/기능성', subCategory: '보호대', img: 'https://shopping-phinf.pstatic.net/main_8592862/85928622055.8.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=아디다스보호대', rating: 4.75, reviews: 320 },
+  { id: 'pro-foot-01', name: '실리콘 발가락 교정 세바레이터', price: 5900, category: '보호대/기능성', subCategory: '발보호', img: 'https://shopping-phinf.pstatic.net/main_8490049/84900496543.2.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=발가락교정기', rating: 4.68, reviews: 1120 },
+  { id: 'pro-ankle-01', name: '발목 지지 압박 보호대', price: 18000, category: '보호대/기능성', subCategory: '보호대', img: 'https://shopping-phinf.pstatic.net/main_8213456/82134567890.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=발목보호대', rating: 4.82, reviews: 215 },
+  { id: 'pro-waist-01', name: '슬림 타입 허리 보호대', price: 25000, category: '보호대/기능성', subCategory: '보호대', img: 'https://shopping-phinf.pstatic.net/main_8314567/83145678901.jpg?type=f300', mallLink: 'https://search.shopping.naver.com/search/all?query=허리보호대', rating: 4.7, reviews: 98 },
+  
+  // --- 의류 추가 (Apparel Extras) ---
+  { id: 'dm-top-05', name: '[드레스몰] 레이스 댄스 연습 탑', price: 23000, category: '의류', subCategory: '상의', img: 'https://shopping-phinf.pstatic.net/main_5678901/56789012345.jpg?type=f300', rating: 4.85, reviews: 67, mallLink: '' },
+  { id: 'dm-bottom-03', name: '와이드 나팔 찰랑바지 블랙', price: 19500, category: '의류', subCategory: '하의', img: 'https://shopping-phinf.pstatic.net/main_6789012/67890123456.jpg?type=f300', rating: 4.79, reviews: 112, mallLink: '' },
+  { id: 'sk-top-02', name: '스킬라 기모 안감 댄스 상의', price: 28000, category: '의류', subCategory: '상의', img: 'https://shopping-phinf.pstatic.net/main_7890123/78901234567.jpg?type=f300', rating: 4.81, reviews: 45, mallLink: '' },
+  { id: 'sk-bottom-03', name: '조거 핏 댄스 연습용 팬츠', price: 25000, category: '의류', subCategory: '하의', img: 'https://shopping-phinf.pstatic.net/main_8901234/89012345678.jpg?type=f300', rating: 4.7, reviews: 89, mallLink: '' }
 ];

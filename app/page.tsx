@@ -15,16 +15,20 @@ export default function Home() {
     setMounted(true);
   }, []);
 
-  const categories = ['전체', '라인댄스화', '의류', '가방/소품', '보호대/기능성'];
+  const categories = [
+    { name: '전체', img: 'https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=200' },
+    { name: '라인댄스화', img: 'https://images.unsplash.com/photo-1516478177764-9fe5bd7e9717?q=80&w=200' },
+    { name: '의류', img: 'https://images.unsplash.com/photo-1539109132332-6292440366b6?q=80&w=200' },
+    { name: '가방/소품', img: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=200' },
+    { name: '보호대/기능성', img: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=200' }
+  ];
 
-  // Dynamically get sub-categories for the active main category
   const subCategories = ['전체', ...Array.from(new Set(
     products
       .filter(p => activeCategory === '전체' || p.category === activeCategory)
       .map(p => p.subCategory)
   ))];
 
-  // Reset sub-category when main category changes
   const handleCategoryChange = (cat: string) => {
     setActiveCategory(cat);
     setActiveSubCategory('전체');
@@ -42,203 +46,197 @@ export default function Home() {
 
   return (
     <div className="home-layout">
-      <EditorialHeader />
-      
-      <main className="content-container">
-        {/* 🏆 히어로 섹션 */}
-        <section className="hero-section container">
-          <div className="hero-grid tonal-lift-high scroll-reveal">
-            <div className="hero-visual">
-               <img src={heroProduct.img} alt={heroProduct.name} className="hero-image" />
-               <div className="vignette"></div>
-            </div>
-            <div className="hero-content">
-              <span className="label-caps accent-text gold-gradient-text" style={{ fontSize: '0.7rem' }}>2026 LINE DANCE PRIME</span>
-              <h1 className="display-text main-title">
-                {heroProduct.name.split(' ')[0]} <br/> 
-                <span className="italic-text">Professional Gears</span>
-              </h1>
-              <p className="hero-desc dim-text">
-                라인댄스 전문가들이 선택한 최적의 장비. <br/>
-                수천개의 검증된 상품을 카테고리별로 만나보세요.
-              </p>
-              <Link href={`/product/${heroProduct.id}`} className="btn-stitch-primary hero-btn">
-                PREVIEW ITEM
+      {/* 🏆 Section 1: Cinematic Hero (Asymmetric) */}
+      <section className="hero-editorial container">
+        <div className="hero-wrapper scroll-reveal">
+          <div className="hero-visual">
+            <img src={heroProduct.img} alt={heroProduct.name} className="hero-image" />
+            <div className="vignette"></div>
+          </div>
+          <div className="hero-content-box glass">
+            <span className="label-caps accent-text">2026 PRIME CURATION</span>
+            <h1 className="display-text main-title">
+              THE ART OF <br/>
+              <span className="gold-gradient-text italic">MOVEMENT</span>
+            </h1>
+            <p className="hero-desc">
+              신중하게 큐레이팅된 {products.length}개의 프리미엄 아이템. <br/>
+              당신의 춤이 완벽한 선이 되는 순간을 위해.
+            </p>
+            <div className="hero-actions">
+              <Link href={`/product/${heroProduct.id}`} className="btn-stitch-primary">
+                COLLECTION PREVIEW
               </Link>
             </div>
-          </div>
-        </section>
-
-        {/* 🏷️ 카테고리 필터 */}
-        <section className="categories container">
-          <div className="category-scroll-wrapper">
-             <div className="category-list main-categories">
-                {categories.map((cat) => (
-                  <button 
-                    key={cat} 
-                    className={`cat-tab label-caps ${activeCategory === cat ? 'active' : ''}`}
-                    onClick={() => handleCategoryChange(cat)}
-                  >
-                    {cat}
-                  </button>
-                ))}
-             </div>
-             
-             {/* Sub-categories row */}
-             <div className="category-list sub-categories" style={{ marginTop: '1rem', paddingLeft: '0.5rem' }}>
-                {subCategories.map((sub) => (
-                  <button 
-                    key={sub} 
-                    className={`sub-cat-tab label-caps ${activeSubCategory === sub ? 'active' : ''}`}
-                    onClick={() => setActiveSubCategory(sub)}
-                  >
-                    {sub}
-                  </button>
-                ))}
-             </div>
-          </div>
-        </section>
-
-        {/* 🛍️ 제품 그리드 */}
-        <section className="product-grid container">
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map((p) => (
-              <Link href={`/product/${p.id}`} key={p.id} className="p-card-link">
-                <div className="p-card tonal-lift-low">
-                  <div className="p-image-wrap">
-                    <img src={p.img} alt={p.name} className="p-image" />
-                  </div>
-                  <div className="p-info">
-                    <span className="p-cat label-caps dim-text">{p.category} • {p.subCategory}</span>
-                    <h3 className="p-title">{p.name}</h3>
-                    <div className="p-footer">
-                      <span className="p-price">₩{p.price.toLocaleString()}</span>
-                      <span className="p-buy label-caps">VIEW <span className="arrow">→</span></span>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))
-          ) : (
-            <div className="empty-state">해당 카테고리에 상품이 없습니다. 곧 추가될 예정입니다!</div>
-          )}
-        </section>
-
-        {/* 👟 프리미엄 배너 */}
-        <section className="editorial-banner container">
-          <div className="banner-content glass scroll-reveal">
-             <div className="banner-text">
-                <h2 className="display-text gold-gradient-text" style={{ fontSize: '2rem' }}>OPEN SOURCING PLATFORM</h2>
-                <p className="dim-text">매일 업데이트되는 수천 개의 검증된 라인댄스 아이템. <br/> 최적의 평점과 리뷰를 가진 상품만을 큐레이션합니다.</p>
-             </div>
-             <button className="btn-stitch-secondary label-caps" style={{ padding: '1rem 2.5rem' }}>전체 상품 보기</button>
-          </div>
-        </section>
-      </main>
-
-      <SanctuaryNav />
-
-      <footer className="main-footer container">
-        <div className="footer-line"></div>
-        <div className="footer-content editorial-meta">
-          <div className="footer-left">
-            <span className="logo-text gold-gradient-text">K-DANCE PRIME</span>
-            <p className="dim-text">© 2026 LINE DANCE SPECIALIZED HUB. <br/> DATA-DRIVEN CURATION.</p>
-          </div>
-          <div className="footer-links label-caps">
-            <a href="#">브랜드 가이드</a>
-            <a href="#">최저가 제보</a>
-            <a href="#">고객센터</a>
           </div>
         </div>
-      </footer>
+      </section>
+
+      {/* 🏷️ Section 2: The Mall Experience (Circular Thumbnails) */}
+      <section className="mall-nav container">
+        <div className="section-header">
+          <span className="label-caps">CATEGORIES</span>
+        </div>
+        <div className="circular-nav-wrapper scroll-hide">
+          {categories.map((cat) => (
+            <button 
+              key={cat.name} 
+              className={`nav-circle-btn ${activeCategory === cat.name ? 'active' : ''}`}
+              onClick={() => handleCategoryChange(cat.name)}
+            >
+              <div className="circle-img-wrap">
+                <img src={cat.img} alt={cat.name} className="circle-img" />
+                <div className="circle-glow"></div>
+              </div>
+              <span className="circle-label">{cat.name}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Dynamic Sub-categories Pill Dock */}
+        <div className="sub-cat-dock scroll-hide">
+          {subCategories.map((sub) => (
+            <button 
+              key={sub} 
+              className={`sub-pill ${activeSubCategory === sub ? 'active' : ''}`}
+              onClick={() => setActiveSubCategory(sub)}
+            >
+              {sub}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* 🛍️ Section 3: The Gallery (Elevated Tonal Cards) */}
+      <section className="product-gallery container">
+        <div className="gallery-grid">
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((p, idx) => (
+              <div key={p.id} className={`gallery-item ${idx % 7 === 0 ? 'large-editorial' : ''}`}>
+                <Link href={`/product/${p.id}`} className="p-card-link">
+                  <div className="editorial-card tonal-lift-low">
+                    <div className="p-img-box">
+                      <img
+                        src={p.img}
+                        alt={p.name}
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.onerror = null;
+                          target.src = 'https://images.unsplash.com/photo-1560769629-975ec94e6a86';
+                        }}
+                        className="p-img"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="p-meta">
+                      <div className="p-meta-top">
+                        <span className="p-tag">{p.subCategory}</span>
+                        <div className="p-rating">★ {p.rating}</div>
+                      </div>
+                      <h3 className="p-title">{p.name}</h3>
+                      <div className="p-price-row">
+                        <span className="p-price">₩{p.price.toLocaleString()}</span>
+                        <span className="p-reviews">Review {p.reviews > 999 ? '999+' : p.reviews}</span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            ))
+          ) : (
+            <div className="empty-state">해당 카테고리에 상품이 없습니다.</div>
+          )}
+        </div>
+      </section>
+
+      {/* 👟 Section 4: Premium Statement */}
+      <section className="statement-banner container">
+        <div className="tonal-lift-high banner-wrapper">
+          <div className="banner-editorial">
+            <h2 className="display-text silver-text">CURATED INTELLIGENCE</h2>
+            <p className="dim-text">매일 업데이트되는 {products.length}개의 데이터 허브. <br/> 검증된 품질, 최적의 가격만을 제안합니다.</p>
+          </div>
+          <button className="btn-stitch-secondary">EXPLORE ALL</button>
+        </div>
+      </section>
 
       <style jsx>{`
-        .home-layout { min-height: 100vh; background: var(--background); padding-top: 6rem; padding-bottom: 8rem; }
+        .home-layout { padding-top: 5rem; padding-bottom: 10rem; background: var(--background); }
         
-        .hero-section { margin-bottom: 6rem; }
-        .hero-grid { 
-           display: grid; grid-template-columns: 1fr 1fr; 
-           background: var(--surface-ghost); border-radius: 24px; overflow: hidden;
-           height: 500px;
+        /* Hero Section */
+        .hero-editorial { margin-bottom: var(--spacing-24); margin-top: 2rem; }
+        .hero-wrapper { position: relative; height: 75vh; min-height: 600px; display: flex; align-items: center; justify-content: flex-end; }
+        .hero-visual { position: absolute; left: 0; top: 0; width: 70%; height: 100%; border-radius: 4rem; overflow: hidden; z-index: 1; }
+        .hero-image { width: 100%; height: 100%; object-fit: cover; }
+        .vignette { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(18,19,22,0.4) 0%, rgba(18,19,22,0) 40%); }
+        .hero-content-box { 
+          position: relative; z-index: 10; width: 45%; padding: 4rem; border-radius: 3rem; 
+          margin-right: -5%; transform: translateY(10%); box-shadow: 0 30px 60px rgba(0,0,0,0.5);
         }
-        .hero-visual { position: relative; width: 100%; height: 100%; overflow: hidden; }
-        .hero-image { width: 100%; height: 100%; object-fit: cover; transition: 5s ease; scale: 1.05; }
-        .hero-grid:hover .hero-image { transform: scale(1.15); }
-        .vignette { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, transparent 50%); }
+        .main-title { font-size: clamp(2.5rem, 5vw, 4.5rem); margin: 1.5rem 0; font-weight: 400; }
+        .italic { font-style: italic; }
+        .hero-desc { font-size: 1.1rem; color: var(--on-surface-muted); margin-bottom: 2.5rem; line-height: 1.8; }
 
-        .hero-content { display: flex; flex-direction: column; justify-content: center; padding: 4.5rem; gap: 1.5rem; }
-        .main-title { font-size: 3.5rem; line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; }
-        .italic-text { font-style: italic; font-weight: 300; }
-        .hero-desc { font-size: 1.1rem; line-height: 1.8; max-width: 80%; }
-        .hero-btn { align-self: flex-start; padding: 1.25rem 3rem; margin-top: 1rem; }
+        /* Mall Nav (Circular) */
+        .mall-nav { margin-bottom: var(--spacing-24); }
+        .section-header { margin-bottom: 2rem; }
+        .circular-nav-wrapper { display: flex; gap: 3rem; overflow-x: auto; padding: 2rem 0; justify-content: center; }
+        .nav-circle-btn { background: none; border: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 1rem; transition: 0.4s var(--ease-stitch); }
+        .circle-img-wrap { position: relative; width: 120px; height: 120px; border-radius: 50%; overflow: visible; transition: 0.6s var(--ease-stitch); }
+        .circle-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; filter: grayscale(0.2) contrast(1.1); }
+        .circle-glow { position: absolute; inset: -10px; border-radius: 50%; background: radial-gradient(circle, var(--primary) 0%, transparent 70%); opacity: 0; transition: 0.6s; z-index: -1; }
+        .nav-circle-btn:hover .circle-img-wrap { transform: translateY(-10px); }
+        .nav-circle-btn.active .circle-img { filter: grayscale(0); border: 2px solid var(--primary); }
+        .nav-circle-btn.active .circle-glow { opacity: 0.3; }
+        .circle-label { font-size: 0.75rem; font-weight: 800; color: var(--on-surface-muted); letter-spacing: 0.1em; transition: 0.3s; }
+        .nav-circle-btn.active .circle-label { color: var(--primary); }
 
-        .categories { margin-bottom: 4rem; position: sticky; top: 5rem; z-index: 50; }
-        .category-scroll-wrapper { background: var(--background); padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .category-list { display: flex; gap: 1rem; overflow-x: auto; -ms-overflow-style: none; scrollbar-width: none; }
+        .sub-cat-dock { display: flex; gap: 0.75rem; overflow-x: auto; padding: 1.5rem 0; justify-content: center; }
+        .sub-pill { 
+          background: var(--surface-container-low); color: var(--on-surface-muted); 
+          padding: 0.5rem 1.5rem; border-radius: 99px; border: none; font-size: 0.7rem; font-weight: 700; cursor: pointer; transition: 0.3s;
+        }
+        .sub-pill.active { background: var(--primary-container); color: var(--on-primary); }
+
+        /* Gallery Grid */
+        .product-gallery { margin-bottom: var(--spacing-24); }
+        .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3rem; }
+        .gallery-item.large-editorial { grid-column: span 2; grid-row: span 1; }
         
-        .cat-tab { 
-          background: none; border: 1px solid rgba(255,255,255,0.1); color: var(--foreground);
-          padding: 0.6rem 2rem; border-radius: 99px; cursor: pointer; transition: 0.4s;
-          white-space: nowrap; font-size: 0.75rem; font-weight: 700;
-        }
-        .cat-tab:hover { background: var(--surface-ghost); border-color: var(--primary); }
-        .cat-tab.active { background: var(--foreground); color: var(--background); border-color: var(--foreground); }
-
-        .sub-cat-tab {
-          background: none; border: none; color: rgba(255,255,255,0.4);
-          padding: 0.4rem 1.2rem; cursor: pointer; transition: 0.3s;
-          white-space: nowrap; font-size: 0.7rem; font-weight: 600;
-        }
-        .sub-cat-tab:hover { color: var(--primary); }
-        .sub-cat-tab.active { color: var(--primary); text-decoration: underline; text-underline-offset: 4px; }
-
-        .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; margin-bottom: 8rem; }
         .p-card-link { text-decoration: none; color: inherit; }
-        .p-card { border-radius: 16px; transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1); height: 100%; display: flex; flex-direction: column; }
-        .p-card:hover { transform: translateY(-12px); }
-        
-        .p-image-wrap { position: relative; aspect-ratio: 1/1.1; border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem; background: var(--surface); }
-        .p-image { width: 100%; height: 100%; object-fit: cover; transition: 1.2s; }
-        .p-card:hover .p-image { transform: scale(1.08); }
-
-        .p-info { padding: 0 0.5rem; display: flex; flex-direction: column; flex-grow: 1; }
-        .p-cat { font-size: 0.6rem; margin-bottom: 0.5rem; display: block; letter-spacing: 0.1em; color: var(--primary); }
-        .p-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 1.5rem; line-height: 1.4; min-height: 2.8rem; }
-        
-        .p-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1.25rem; }
-        .p-price { font-size: 1.15rem; font-weight: 800; color: var(--foreground); }
-        .p-buy { font-size: 0.65rem; color: var(--primary); font-weight: 700; }
-        .p-buy .arrow { margin-left: 0.25rem; }
-
-        .empty-state { grid-column: 1 / -1; text-align: center; padding: 10rem 0; font-size: 1.2rem; color: rgba(255,255,255,0.2); }
-
-        .editorial-banner { margin-bottom: 8rem; }
-        .banner-content { 
-          padding: 4rem; border-radius: 32px; display: flex; justify-content: space-between; align-items: center;
-          border: 1px solid rgba(212,175,55,0.2); background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.05) 100%);
+        .editorial-card { 
+          border-radius: 2rem; overflow: hidden; height: 100%; display: flex; flex-direction: column; 
+          transition: 0.8s var(--ease-stitch); 
         }
+        .editorial-card:hover { transform: translateY(-1rem); background: var(--surface-container-high); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        
+        .p-img-box { position: relative; width: 100%; aspect-ratio: 1/1.1; overflow: hidden; background: var(--background); }
+        .p-img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s var(--ease-stitch); }
+        .editorial-card:hover .p-img { transform: scale(1.1); }
+        
+        .p-meta { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .p-meta-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .p-tag { font-size: 0.6rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 0.1em; }
+        .p-rating { font-size: 0.75rem; font-weight: 800; color: #F2CA50; }
+        .p-title { font-size: 1.1rem; line-height: 1.4; font-weight: 500; font-family: var(--font-body); margin-bottom: 1.5rem; }
+        .p-price-row { display: flex; justify-content: space-between; align-items: baseline; }
+        .p-price { font-size: 1.25rem; font-weight: 800; }
+        .p-reviews { font-size: 0.7rem; color: var(--on-surface-dim); font-weight: 600; }
 
-        .main-footer { padding-bottom: 10rem; }
-        .footer-line { width: 100%; height: 1px; background: rgba(255,255,255,0.05); margin-bottom: 3rem; }
-        .footer-content { display: flex; justify-content: space-between; align-items: flex-start; }
-        .logo-text { font-size: 1.2rem; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 1rem; }
-        .footer-links { display: flex; gap: 2rem; font-size: 0.65rem; color: rgba(255,255,255,0.4); }
-        .footer-links a { text-decoration: none; color: inherit; transition: 0.3s; }
-        .footer-links a:hover { color: var(--primary); }
-
-        .gold-gradient-text {
-          background: linear-gradient(135deg, #F2CA50 0%, #D4AF37 50%, #B8860B 100%);
-          -webkit-background-clip: text; background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
+        /* Banner */
+        .statement-banner { margin-bottom: var(--spacing-24); }
+        .banner-wrapper { padding: 5rem; border-radius: 4rem; display: flex; justify-content: space-between; align-items: center; gap: 4rem; }
+        .silver-text { font-size: 3rem; color: #fff; letter-spacing: -0.02em; }
+        .empty-state { grid-column: 1 / -1; text-align: center; padding: 10rem 0; color: var(--on-surface-dim); }
 
         @media (max-width: 1024px) {
-           .hero-grid { grid-template-columns: 1fr; height: auto; }
-           .hero-content { padding: 3rem; }
-           .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-           .main-title { font-size: 2.5rem; }
-           .banner-content { flex-direction: column; text-align: center; gap: 2.5rem; padding: 3rem 1.5rem; }
+          .hero-wrapper { flex-direction: column; height: auto; justify-content: flex-start; }
+          .hero-visual { position: relative; width: 100%; height: 50vh; border-radius: 2rem; }
+          .hero-content-box { width: 90%; margin-right: 0; margin-top: -10vh; padding: 2.5rem; border-radius: 2rem; }
+          .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+          .gallery-item.large-editorial { grid-column: span 2; }
+          .circular-nav-wrapper { justify-content: flex-start; padding: 1rem; gap: 2rem; }
+          .banner-wrapper { flex-direction: column; text-align: center; padding: 3rem 1.5rem; gap: 2rem; }
         }
       `}</style>
     </div>

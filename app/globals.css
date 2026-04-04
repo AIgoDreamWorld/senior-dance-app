@@ -1,57 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+KR:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;700;800&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+KR:wght@400;700&display=swap');
 
 :root {
-  /* Stitch Color Protocol: Cyber-Zen Editorial v2.2 - Pure Obsidian Luxe (Default) */
-  --background: #0D0E10;    /* The Absolute Void */
-  --foreground: #F5F5F7;    /* High-Fidelity Paper */
-  --primary: #D4AF37;       /* Signature Burnished Gold */
-  --primary-glow: rgba(212, 175, 55, 0.4);
-  --on-primary: #121316;
+  /* Stitch Color Protocol: Cyber-Zen Editorial v2.0 - Premium Obsidian */
+  --background: #121316;    /* Base Layer */
+  --surface: #121316;       /* Main Viewport */
+  --foreground: #e3e2e6;    /* on_surface: High-Fidelity Paper */
+  --primary: #f2ca50;       /* Signature Active Gold */
+  --primary-container: #d4af37; /* Burnished Gold for Text/Containers */
+  --on-primary: #3c2f00;
   
-  /* Tonal Surface Hierarchy */
-  --surface-1: #121316;
-  --surface-2: #18191D;
-  --surface-3: #222429;
-  --surface-ghost: rgba(255, 255, 255, 0.03); 
+  /* Tonal Surface Hierarchy (No-Line Rule) */
+  --surface-container-lowest: #0d0e11;
+  --surface-container-low: #1b1b1f;    /* Secondary Sections */
+  --surface-container: #1f1f23;
+  --surface-container-high: #292a2d;   /* Elevated Cards */
+  --surface-container-highest: #343538; /* Active/Interactive Objects */
+  --surface-variant: #343538;          /* Glass Base */
   
-  --on-surface-muted: #8E8E93;
-  --on-surface-dim: #5C5C5E;
-  --glass-bg: rgba(20, 21, 23, 0.7);
+  --outline-variant: rgba(77, 70, 53, 0.15); /* Ghost Border Fallback */
+  --on-surface-muted: #d0c5af;         /* on_surface_variant */
+  --on-surface-dim: #99907c;           /* outline */
 
+  /* Glassmorphism Standard */
+  --glass-bg: rgba(52, 53, 56, 0.4);   /* surface-variant 40% */
+  --glass-blur: blur(20px);
+  
   /* Spacing & Typography */
-  --gutter: 1.5rem;
-  --luxury-gap: 4rem;
-  --section-gap: 8rem;
-  --font-display: 'Playfair Display', serif;
-  --font-accent: 'Noto Serif KR', serif;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  --font-display: 'Noto Serif', serif;
   --font-body: 'Manrope', sans-serif;
-  --size-display: 5rem;
-  --size-h2: 2.5rem;
-  --size-label: 0.7rem;
-
+  
   /* Motion */
   --ease-stitch: cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: 0.8s var(--ease-stitch);
   --transition-fast: 0.4s var(--ease-stitch);
-  --theme-transition: background 0.8s var(--ease-stitch), color 0.8s var(--ease-stitch);
-}
-
-[data-theme='ivory'] {
-  /* Ivory Zen - Premium Light Mode */
-  --background: #F9F7F2;    /* Warm Editorial Ivory */
-  --foreground: #1A1C20;    /* Deep Charcoal for legibility */
-  --primary: #B8860B;       /* Deeper Gold for Contrast */
-  --primary-glow: rgba(184, 134, 11, 0.2);
-  --on-primary: #FFFFFF;
-  
-  --surface-1: #FFFFFF;     /* Pure White Lift */
-  --surface-2: #F2EFE9;     /* Soft Beige Lift */
-  --surface-3: #EBE7DD;     /* Deep Shadow */
-  --surface-ghost: rgba(0, 0, 0, 0.04);
-  
-  --on-surface-muted: #626266;
-  --on-surface-dim: #A1A1A6;
-  --glass-bg: rgba(255, 255, 255, 0.75);
 }
 
 * {
@@ -69,7 +52,6 @@ html, body {
   scroll-behavior: smooth;
   height: 100%;
   overflow-x: hidden;
-  transition: var(--theme-transition);
 }
 
 body {
@@ -81,135 +63,86 @@ body {
 /* --- THE NO-LINE STITCH UTILITIES --- */
 
 .tonal-lift-low {
-  background: var(--surface-1);
-  transition: var(--theme-transition);
+  background: var(--surface-container-low);
+  border: none !important;
 }
 
 .tonal-lift-high {
-  background: var(--surface-2);
-  transition: var(--theme-transition);
+  background: var(--surface-container-high);
+  border: none !important;
 }
 
-/* Glassmorphism 3.0 (Cyber-Zen Standard) */
+/* Glassmorphism v2.0 */
 .glass {
   background: var(--glass-bg);
-  backdrop-filter: blur(40px) saturate(180%);
-  -webkit-backdrop-filter: blur(40px) saturate(180%);
-  transition: var(--theme-transition);
-}
-
-.glass-floating {
-  background: rgba(30, 31, 34, 0.6);
-  backdrop-filter: blur(32px);
-  border-radius: 999px;
-  padding: 0.75rem 1.5rem;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--outline-variant); /* Ghost reflection */
 }
 
 /* Editorial Typography */
 .display-text {
   font-family: var(--font-display);
-  font-weight: 400;
   color: var(--foreground);
   line-height: 1.05;
   letter-spacing: -0.04em;
 }
 
-.accent-text {
-  font-family: var(--font-accent);
-}
-
 .label-caps {
   font-family: var(--font-body);
-  font-size: var(--size-label);
+  font-size: 0.7rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.25em;
-  color: var(--on-surface-muted);
+  color: var(--primary-container);
 }
 
 .gold-gradient-text {
-  background: linear-gradient(135deg, #F2CA50 0%, #D4AF37 50%, #B8860B 100%);
+  background: linear-gradient(135deg, #f2ca50 0%, #d4af37 50%, #b8860b 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Buttons: Architectural Kinetics */
+/* Buttons: Kinetic Editorial */
 .btn-stitch-primary {
-  padding: 1.25rem 2.5rem;
-  border-radius: 2px;
-  font-weight: 800;
+  padding: 1rem 2.5rem;
+  border-radius: 999px; /* ROUND_FULL */
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
   border: none;
-  background: var(--primary);
+  background: var(--primary-container);
   color: var(--on-primary);
-  transition: all 0.5s var(--ease-stitch);
+  transition: all 0.4s var(--ease-stitch);
   cursor: pointer;
 }
 
-.btn-stitch-primary:active {
-  transform: scale(0.95);
-  filter: brightness(1.2);
+.btn-stitch-primary:hover {
+  background: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .btn-stitch-secondary {
-  padding: 1.25rem 2.5rem;
-  border-radius: 2px;
-  background: var(--surface-ghost);
+  padding: 1rem 2.5rem;
+  border-radius: 999px;
+  background: transparent;
   color: var(--foreground);
-  border: none;
+  border: 1px solid var(--outline-variant);
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-weight: 800;
+  letter-spacing: 0.1em;
+  font-weight: 700;
   backdrop-filter: blur(10px);
-  transition: all 0.5s var(--ease-stitch);
+  transition: all 0.4s var(--ease-stitch);
 }
 
-.btn-stitch-secondary:active {
-  background: rgba(255, 255, 255, 0.1);
-  transform: scale(0.95);
+.btn-stitch-secondary:hover {
+  background: var(--surface-container-highest);
+  border-color: var(--on-surface-muted);
 }
 
-/* Micro-Interactions: Stitch Volumetric Response */
-.pulse-on-click:active {
-  animation: stitchPulse 0.4s var(--ease-stitch);
-}
-
-@keyframes stitchPulse {
-  0% { transform: scale(1); filter: brightness(1); }
-  50% { transform: scale(0.97); filter: brightness(1.2); }
-  100% { transform: scale(1); filter: brightness(1); }
-}
-
-/* Editorial Reveal Animation */
-.reveal-text {
-  animation: reveal 1.2s var(--ease-stitch);
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: bottom;
-}
-
-@keyframes reveal {
-  from { transform: translateY(100%); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-/* Sanctuary Glow: Volumetric Depth */
-.sanctuary-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80vw;
-  height: 80vh;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
-  filter: blur(100px);
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Custom Scroll (Hidden but functional) */
+/* Custom Scroll */
 .scroll-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -218,32 +151,12 @@ body {
   display: none;
 }
 
-/* Mobile-Specific Refinements */
 @media (max-width: 768px) {
-  :root {
-    --size-display: 3.25rem;
-    --luxury-gap: 2rem;
-    --section-gap: 5rem;
-  }
-  
-  .btn-stitch-primary, .btn-stitch-secondary {
-    padding: 1rem 2rem;
-    font-size: 0.8rem;
-  }
+  html { font-size: 14px; }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.prime-badge {
-  font-family: var(--font-body);
-  font-size: 0.55rem;
-  font-weight: 900;
-  background: var(--primary);
-  color: var(--on-primary);
-  padding: 0.2rem 0.45rem;
-  letter-spacing: 0.05em;
-  border-radius: 2px;
+.container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
